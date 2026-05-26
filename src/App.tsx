@@ -116,7 +116,7 @@ export default function App() {
       id: "03",
       title: "에이스침대 디지털 캠페인",
       client: "에이스침대",
-      category: "BANNERS & ADS",
+      category: "BANNERS",
       year: "2021",
       image: "https://images.unsplash.com/photo-1505691938895-1758d7feb511?auto=format&fit=crop&w=400&q=80"
     },
@@ -124,7 +124,7 @@ export default function App() {
       id: "04",
       title: "SNS 퍼포먼스 광고",
       client: "아데나소프트웨어",
-      category: "BANNERS & ADS",
+      category: "BANNERS",
       year: "2023",
       image: "https://images.unsplash.com/photo-1618005182384-a83a8bd57fbe?auto=format&fit=crop&w=400&q=80"
     },
@@ -132,7 +132,7 @@ export default function App() {
       id: "05",
       title: "이벤트 프로모션 랜딩페이지",
       client: "아데나소프트웨어",
-      category: "BRANDING",
+      category: "ADS",
       year: "2024",
       image: "https://images.unsplash.com/photo-1507238691740-187a5b1d37b8?auto=format&fit=crop&w=400&q=80"
     },
@@ -140,7 +140,7 @@ export default function App() {
       id: "06",
       title: "전시 부스 디자인",
       client: "아데나소프트웨어",
-      category: "BRANDING",
+      category: "ADS",
       year: "2023",
       image: "https://images.unsplash.com/photo-1497366216548-37526070297c?auto=format&fit=crop&w=400&q=80"
     },
@@ -148,7 +148,7 @@ export default function App() {
       id: "07",
       title: "구글 DA 광고 소재",
       client: "아데나소프트웨어",
-      category: "BANNERS & ADS",
+      category: "BANNERS",
       year: "2024",
       image: "https://images.unsplash.com/photo-1542751371-adc38448a05e?auto=format&fit=crop&w=400&q=80"
     },
@@ -156,7 +156,7 @@ export default function App() {
       id: "08",
       title: "키비주얼 디자인",
       client: "아데나소프트웨어",
-      category: "BRANDING",
+      category: "ADS",
       year: "2025",
       image: "https://images.unsplash.com/photo-1550684848-fac1c5b4e853?auto=format&fit=crop&w=400&q=80"
     },
@@ -172,7 +172,7 @@ export default function App() {
       id: "10",
       title: "HYPER-IDENTITY LAUNCH CAMPAIGN",
       client: "AURA CORP",
-      category: "BANNERS & ADS",
+      category: "BANNERS",
       year: "2025",
       image: "https://images.unsplash.com/photo-1514525253161-7a46d19cd819?auto=format&fit=crop&w=400&q=80"
     },
@@ -196,7 +196,7 @@ export default function App() {
       id: "13",
       title: "EDITORIAL MUSE METRICS GRID",
       client: "MUSE MAGAZINE",
-      category: "BRANDING",
+      category: "ADS",
       year: "2024",
       image: "https://images.unsplash.com/photo-1546519638-68e109498ffc?auto=format&fit=crop&w=400&q=80"
     },
@@ -204,7 +204,7 @@ export default function App() {
       id: "14",
       title: "SEOUL FASHION WEEK BANNERS",
       client: "SEOUL CITY",
-      category: "BANNERS & ADS",
+      category: "BANNERS",
       year: "2024",
       image: "https://images.unsplash.com/photo-1513836279014-a89f7a76ae86?auto=format&fit=crop&w=400&q=80"
     },
@@ -212,7 +212,7 @@ export default function App() {
       id: "15",
       title: "KINETIC TYPOGRAPHY SIGNAGE",
       client: "MOTION LABS",
-      category: "BRANDING",
+      category: "ADS",
       year: "2024",
       image: "https://images.unsplash.com/photo-1486406146926-c627a92ad1ab?auto=format&fit=crop&w=400&q=80"
     },
@@ -220,7 +220,7 @@ export default function App() {
       id: "16",
       title: "NARRATIVE LAB GRAPHICS",
       client: "NARRATIVE SEOUL",
-      category: "BRANDING",
+      category: "ADS",
       year: "2023",
       image: "https://images.unsplash.com/photo-1472289065668-ce650ac443d2?auto=format&fit=crop&w=400&q=80"
     },
@@ -236,7 +236,7 @@ export default function App() {
       id: "18",
       title: "AURA SMART SYSTEM UI PROD",
       client: "AURA INC",
-      category: "BRANDING",
+      category: "ADS",
       year: "2023",
       image: "https://images.unsplash.com/photo-1618005182384-a83a8bd57fbe?auto=format&fit=crop&w=400&q=80"
     },
@@ -244,7 +244,7 @@ export default function App() {
       id: "19",
       title: "REDEFINING CHROMA DISPLAY",
       client: "CHROMA BROADCAST",
-      category: "BANNERS & ADS",
+      category: "BANNERS",
       year: "2022",
       image: "https://images.unsplash.com/photo-1550684848-fac1c5b4e853?auto=format&fit=crop&w=400&q=80"
     }
@@ -365,16 +365,16 @@ export default function App() {
                 VIDEO
               </button>
               <button 
-                onClick={() => { setView("works"); setSelectedCategory("BANNERS & ADS"); setIsMenuOpen(false); window.scrollTo({ top: 0, behavior: "smooth" }); }}
+                onClick={() => { setView("works"); setSelectedCategory("BANNERS"); setIsMenuOpen(false); window.scrollTo({ top: 0, behavior: "smooth" }); }}
                 className="text-[12px] sm:text-[13px] font-bold text-black/90 hover:text-black tracking-[3px] text-left uppercase cursor-pointer"
               >
                 BANNERS
               </button>
               <button 
-                onClick={() => { setView("works"); setSelectedCategory("BRANDING"); setIsMenuOpen(false); window.scrollTo({ top: 0, behavior: "smooth" }); }}
+                onClick={() => { setView("works"); setSelectedCategory("ADS"); setIsMenuOpen(false); window.scrollTo({ top: 0, behavior: "smooth" }); }}
                 className="text-[12px] sm:text-[13px] font-bold text-black/90 hover:text-black tracking-[3px] text-left uppercase cursor-pointer"
               >
-                BRANDING
+                ADS
               </button>
             </div>
           </div>
@@ -483,7 +483,8 @@ export default function App() {
               {homeProjects.map((project) => (
                 <div 
                   key={project.id} 
-                  className={`group flex flex-col ${project.translateY} transition-all duration-500`}
+                  onClick={() => { window.location.href = `work-detail.html?id=${parseInt(project.id, 10)}`; }}
+                  className={`group flex flex-col ${project.translateY} transition-all duration-500 cursor-pointer`}
                 >
                   {/* Image Placeholder Frame - Dark Gray Box with Red Border */}
                   <div className={`relative ${project.aspect} w-full bg-[#141414] border border-[#E50914] overflow-hidden transition-all duration-500 ease-out hover:border-[#E50914]/80 hover:brightness-125 hover:scale-[1.01] flex flex-col justify-between p-4 sm:p-6`}>
@@ -580,9 +581,6 @@ export default function App() {
             <div className="relative inline-block w-full">
               <h1 className="font-black text-[12vw] sm:text-[10vw] md:text-[80px] lg:text-[100px] leading-none tracking-tight-extreme text-[#E50914] select-none mb-4">
                 WORKS
-                <sup className="text-sm font-mono tracking-widest font-normal text-[#E50914] ml-2 relative -top-[1.2rem] sm:-top-[2.2rem]">
-                  [{worksData.length}]
-                </sup>
               </h1>
             </div>
 
@@ -601,16 +599,16 @@ export default function App() {
                 [VIDEO]
               </button>
               <button 
-                onClick={() => setSelectedCategory("BANNERS & ADS")}
-                className={`hover:text-[#E50914] transition-colors cursor-pointer ${selectedCategory === "BANNERS & ADS" ? "text-[#E50914] font-black" : ""}`}
+                onClick={() => setSelectedCategory("BANNERS")}
+                className={`hover:text-[#E50914] transition-colors cursor-pointer ${selectedCategory === "BANNERS" ? "text-[#E50914] font-black" : ""}`}
               >
-                [BANNERS & ADS]
+                [BANNERS]
               </button>
               <button 
-                onClick={() => setSelectedCategory("BRANDING")}
-                className={`hover:text-[#E50914] transition-colors cursor-pointer ${selectedCategory === "BRANDING" ? "text-[#E50914] font-black" : ""}`}
+                onClick={() => setSelectedCategory("ADS")}
+                className={`hover:text-[#E50914] transition-colors cursor-pointer ${selectedCategory === "ADS" ? "text-[#E50914] font-black" : ""}`}
               >
-                [BRANDING]
+                [ADS]
               </button>
             </div>
           </section>
@@ -620,6 +618,7 @@ export default function App() {
             {filteredWorks.map((work) => (
               <div 
                 key={work.id}
+                onClick={() => { window.location.href = `work-detail.html?id=${parseInt(work.id, 10)}`; }}
                 className="group flex flex-col sm:flex-row sm:items-center justify-between py-[12px] cursor-pointer transition-all duration-300 border-b border-[#E50914]/5 hover:bg-[#E50914]/5 px-4 -mx-4 uppercase"
                 onMouseEnter={() => setActiveThumbnailId(work.id)}
                 onMouseLeave={() => setActiveThumbnailId(null)}
@@ -757,7 +756,7 @@ export default function App() {
               <div className="flex flex-col gap-4 mt-8 select-none">
                 <span className="text-[10px] font-mono tracking-[3px] opacity-60">CONTACT</span>
                 <div className="flex flex-col gap-2 text-[26px] sm:text-[36px] md:text-[44px] font-black tracking-tighter leading-none text-[#E50914]">
-                  <div className="uppercase">ZUZANNAWOZNICZKA</div>
+                  <div className="uppercase">SONG HEE</div>
                   <a href="mailto:GRADE@GMAIL.COM" className="hover:text-white transition-colors duration-300">
                     GRADE@GMAIL.COM
                   </a>
@@ -790,10 +789,10 @@ export default function App() {
             READY TO WORK ON YOUR NEXT LOOK
           </span>
           <a
-            href="mailto:ZUZANNAWOZNICZKAGRADE@GMAIL.COM"
+            href="mailto:SONGHEEGRADE@GMAIL.COM"
             className="font-black text-lg sm:text-2xl lg:text-3xl tracking-tight-heading text-[#E50914] hover:opacity-85 transition-opacity uppercase"
           >
-            ZUZANNAWOZNICZKAGRADE@GMAIL.COM
+            SONGHEEGRADE@GMAIL.COM
           </a>
         </div>
         <div className="font-semibold text-[10px] tracking-widest text-[#E50914] md:text-right uppercase">
@@ -802,17 +801,17 @@ export default function App() {
       </section>
 
       {/* SECTION 7: FOOTER (RED BACKGROUND SECTION) */}
-      <footer id="footer" className="w-full bg-[#E50914] text-[#000000] px-6 md:px-12 pt-20 pb-8 flex flex-col gap-24">
+      <footer id="footer" class="w-full bg-[#E50914] text-[#000000] px-6 md:px-12 pt-20 pb-8 flex flex-col gap-24">
         
         {/* Footer Top Links Row */}
         <div className="grid grid-cols-1 md:grid-cols-3 gap-12 text-[12px] font-bold tracking-widest select-none">
           <div className="flex flex-col gap-3">
             <span className="opacity-60 text-[10px] font-mono tracking-[3px]">MENU</span>
-            <div className="flex flex-col gap-1.5">
-              <button onClick={() => { setView("works"); setSelectedCategory("ALL"); window.scrollTo({ top: 0, behavior: "smooth" }); }} className="text-left font-black hover:opacity-75 cursor-pointer">WORKS</button>
-              <button onClick={() => { setView("works"); setSelectedCategory("VIDEO"); window.scrollTo({ top: 0, behavior: "smooth" }); }} className="text-left font-black hover:opacity-75 cursor-pointer">COMMERCIAL</button>
-              <button onClick={() => { setView("works"); setSelectedCategory("BANNERS & ADS"); window.scrollTo({ top: 0, behavior: "smooth" }); }} className="text-left font-black hover:opacity-75 cursor-pointer">MUSIC VIDEO</button>
-              <button onClick={() => { setView("works"); setSelectedCategory("BRANDING"); window.scrollTo({ top: 0, behavior: "smooth" }); }} className="text-left font-black hover:opacity-75 cursor-pointer">NARRATIVE</button>
+            <div class="flex flex-col gap-1.5">
+              <button onClick={() => { setView("works"); setSelectedCategory("ALL"); window.scrollTo({ top: 0, behavior: "smooth" }); }} class="text-left font-black hover:opacity-75 cursor-pointer">WORKS</button>
+              <button onClick={() => { setView("works"); setSelectedCategory("VIDEO"); window.scrollTo({ top: 0, behavior: "smooth" }); }} class="text-left font-black hover:opacity-75 cursor-pointer">VIDEO</button>
+              <button onClick={() => { setView("works"); setSelectedCategory("BANNERS"); window.scrollTo({ top: 0, behavior: "smooth" }); }} class="text-left font-black hover:opacity-75 cursor-pointer">BANNERS</button>
+              <button onClick={() => { setView("works"); setSelectedCategory("ADS"); window.scrollTo({ top: 0, behavior: "smooth" }); }} class="text-left font-black hover:opacity-75 cursor-pointer">ADS</button>
             </div>
           </div>
           
@@ -827,32 +826,32 @@ export default function App() {
 
           <div className="flex flex-col gap-3 md:text-right">
             <span className="opacity-60 text-[10px] font-mono tracking-[3px]">LOCATION</span>
-            <span className="font-black uppercase">WORLDWIDE / BARCELONA / WARSAW</span>
+            <span class="font-black uppercase">WORLDWIDE / BARCELONA / WARSAW</span>
           </div>
         </div>
 
-        {/* Footer Monstrous Typographic Display: ZUZA [portrait] W */}
+        {/* Footer Monstrous Typographic Display: SONG [portrait] HEE */}
         <div className="w-full flex items-center justify-center overflow-hidden tracking-tighter select-none font-black text-[#000000]">
-          <div className="flex items-center justify-center leading-[0.8] text-[15vw] sm:text-[18vw] md:text-[15.5vw] lg:text-[18vw] xl:text-[23vw]">
-            <span>ZUZA</span>
+          <div class="flex items-center justify-center leading-[0.8] text-[15vw] sm:text-[18vw] md:text-[15.5vw] lg:text-[18vw] xl:text-[23vw]">
+            <span>SONG</span>
             
             {/* Embedded high-end contrast-blended portrait photo box tilted to mimic a backslash \ */}
             <div className="w-[8vw] h-[11vw] min-w-[50px] min-h-[70px] max-w-[170px] max-h-[238px] mx-2 md:mx-6 inline-block align-middle bg-black overflow-hidden relative border border-black group rotate-[8deg]">
               <img
                 src="https://images.unsplash.com/photo-1544025313-94ddf0286df2?auto=format&fit=crop&w=400&q=80"
-                alt="Zuzanna Portrait Silhouette"
+                alt="Songhee Portrait Silhouette"
                 referrerPolicy="no-referrer"
                 className="w-full h-full object-cover filter grayscale contrast-[1.8] brightness-[0.75] mix-blend-multiply opacity-100 transition-transform duration-500 group-hover:scale-105"
               />
             </div>
             
-            <span>W</span>
+            <span>HEE</span>
           </div>
         </div>
 
         {/* Footer Bottom Metadata Credits */}
         <div className="flex flex-col sm:flex-row justify-between items-center gap-4 text-[10px] tracking-widest font-bold border-t border-black/10 pt-6">
-          <span>COPYRIGHT © 2025 ZUZA WOŹNICZKA</span>
+          <span>COPYRIGHT © 2025 SONG HEE</span>
           <span>DESIGN&DEV @TOTALNIE.JULIANNA</span>
         </div>
 
