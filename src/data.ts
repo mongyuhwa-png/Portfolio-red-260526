@@ -1,12 +1,12 @@
 import { Project } from "./types";
 
 export const PORTFOLIO_OWNER = {
-  name: "Zuzanna Woźniczka",
+  name: "portfolio-songhee",
   koreanName: "이송희",
   title: "FREELANCE COLORIST",
   location: "Warsaw, Poland & Seoul",
-  email: "zuzawozniczka@gmail.com",
-  websiteUrl: "www.zuzawozniczka.com",
+  email: "thdgmldlsgh@naver.com",
+  websiteUrl: "https://portfolio-songhee-260526.vercel.app/",
   instagramUrl: "https://instagram.com/zuzawozniczka",
   linkedinUrl: "https://linkedin.com",
   becomingText: "turning frames INTO EMOTIONS — grading commercial, narrative, and music video projects worldwide."
