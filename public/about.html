@@ -1,0 +1,316 @@
+<!doctype html>
+<html lang="ko">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>SONGHEE LEE — INFO</title>
+    <!-- Google Fonts Public Sans -->
+    <style>
+      @import url('https://fonts.googleapis.com/css2?family=Public+Sans:wght@100;400;700;900&display=swap');
+      
+      body {
+        font-family: 'Public Sans', sans-serif;
+        background-color: #000000;
+        color: #E50914;
+        text-transform: uppercase;
+        user-select: none;
+      }
+      
+      /* Webkit scrollbar personalization */
+      ::-webkit-scrollbar {
+        width: 6px;
+      }
+      ::-webkit-scrollbar-track {
+        background: #000000;
+      }
+      ::-webkit-scrollbar-thumb {
+        background: #E50914;
+        border-radius: 3px;
+      }
+
+      /* CSS Halftone Dot Pattern for profile photo */
+      .halftone-overlay {
+        mix-blend-mode: multiply;
+        background-image: radial-gradient(circle, #000000 25%, transparent 26%);
+        background-size: 4px 4px;
+        opacity: 0.35;
+      }
+    </style>
+    <!-- Tailwind CSS Play CDN -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script>
+      tailwind.config = {
+        theme: {
+          extend: {
+            colors: {
+              brandRed: '#E50914',
+            },
+            letterSpacing: {
+              'tight-extreme': '-0.04em',
+            }
+          }
+        }
+      }
+    </script>
+  </head>
+  <body class="relative min-h-screen bg-[#000000] text-[#E50914] antialiased">
+    
+    <!-- SECTION 1: FIXED NAVIGATION BAR -->
+    <nav class="fixed top-0 left-0 w-full h-[60px] z-50 flex items-center justify-between px-6 md:px-12 bg-black/80 backdrop-blur-sm border-b border-brandRed/10">
+      <a href="index.html" class="font-extrabold text-[14px] tracking-widest text-[#E50914] hover:opacity-80 transition-opacity">
+        SONGHEE
+      </a>
+      
+      <button 
+        id="menu-trigger"
+        onclick="toggleMenu()"
+        class="text-[24px] font-light text-[#E50914] cursor-pointer focus:outline-none select-none transition-transform duration-300 hover:scale-110"
+        aria-label="Toggle Navigation"
+      >
+        +
+      </button>
+    </nav>
+
+    <!-- FULL-SCREEN OVERLAY MENU -->
+    <div 
+      id="menu-overlay"
+      class="fixed inset-0 bg-[#000000] z-40 flex flex-col justify-between p-6 md:p-12 transition-all duration-500 ease-in-out opacity-0 -translate-y-full pointer-events-none"
+    >
+      <div class="h-[60px]"></div>
+      
+      <div class="flex flex-col gap-6 md:gap-8 justify-center flex-grow text-center">
+        <a href="works.html" class="font-black text-4xl sm:text-6xl md:text-8xl tracking-tight-extreme text-[#E50914] hover:italic transition-all duration-200">
+          WORKS
+        </a>
+        <a href="work-video.html" class="font-black text-4xl sm:text-6xl md:text-8xl tracking-tight-extreme text-[#E50914] hover:italic transition-all duration-200">
+          VIDEO
+        </a>
+        <a href="work-banners.html" class="font-black text-4xl sm:text-6xl md:text-8xl tracking-tight-extreme text-[#E50914] hover:italic transition-all duration-200">
+          BANNERS
+        </a>
+        <a href="work-branding.html" class="font-black text-4xl sm:text-6xl md:text-8xl tracking-tight-extreme text-[#E50914] hover:italic transition-all duration-200">
+          BRANDING
+        </a>
+      </div>
+
+      <div class="grid grid-cols-1 md:grid-cols-3 gap-6 pt-6 border-t border-brandRed/20 text-[11px] font-normal tracking-wider">
+        <div class="flex flex-col gap-1">
+          <span class="opacity-50">SOCIALS</span>
+          <a href="https://instagram.com" target="_blank" rel="noopener noreferrer" class="hover:underline">INSTAGRAM</a>
+          <a href="https://behance.net" target="_blank" rel="noopener noreferrer" class="hover:underline">BEHANCE</a>
+        </div>
+        <div class="flex flex-col gap-1">
+          <span class="opacity-50">CONTACT</span>
+          <a href="mailto:THDGMLDLSGH@NAVER.COM" class="hover:underline">THDGMLDLSGH@NAVER.COM</a>
+        </div>
+        <div class="flex flex-col gap-1 md:text-right">
+          <span class="opacity-50">LOCATION</span>
+          <span>SEOUL / SOUTH KOREA</span>
+        </div>
+      </div>
+    </div>
+
+    <!-- MAIN EXPORT CONTENT -->
+    <main class="w-full pt-[140px] px-6 md:px-12 max-w-7xl mx-auto flex flex-col">
+      
+      <!-- Split columns grid -->
+      <div class="grid grid-cols-1 lg:grid-cols-12 gap-12 lg:gap-24 w-full">
+        
+        <!-- Left Column (35% on large screen) -->
+        <div class="lg:col-span-4 flex flex-col">
+          <div class="relative w-full aspect-square bg-[#E50914] overflow-hidden border border-brandRed">
+            <img 
+              src="https://images.unsplash.com/photo-1544025313-94ddf0286df2?auto=format&fit=crop&w=600&q=80" 
+              alt="Songhee Lee profile photo" 
+              class="w-full h-full object-cover filter grayscale contrast-[1.2] mix-blend-multiply opacity-100 object-center transition-transform duration-500 hover:scale-105"
+            />
+            <div class="absolute inset-0 halftone-overlay pointer-events-none"></div>
+
+            <div class="absolute inset-x-0 top-0 h-4 flex justify-between pointer-events-none opacity-40">
+              <span class="border-t border-l border-black w-2 h-2 m-2"></span>
+              <span class="border-t border-r border-black w-2 h-2 m-2"></span>
+            </div>
+            <div class="absolute inset-x-0 bottom-0 h-4 flex justify-between pointer-events-none opacity-40">
+              <span class="border-b border-l border-black w-2 h-2 m-2"></span>
+              <span class="border-b border-r border-black w-2 h-2 m-2"></span>
+            </div>
+          </div>
+        </div>
+
+        <!-- Right Column (65% on large screen) -->
+        <div class="lg:col-span-8 flex flex-col justify-between">
+          
+          <!-- Upper area: Brand Philosophy -->
+          <div class="flex flex-col items-start">
+            <span class="text-[11px] font-mono tracking-[4px] text-brandRed block mb-4 opacity-80">
+              INFO
+            </span>
+            <h2 class="font-black text-[23px] sm:text-[28px] md:text-[32px] leading-[1.2] md:leading-[1.15] tracking-tight text-brandRed uppercase max-w-[680px]">
+              MY PROCESS IS GROUNDED IN UNDERSTANDING THE BRAND. VISUAL INTENTION, MESSAGE AND EMOTIONAL TONE OF A PROJECT ALWAYS COMES FIRST.
+            </h2>
+            
+            <div class="mt-8 mb-12">
+              <a href="works.html" class="inline-block border border-brandRed hover:bg-brandRed hover:text-black text-brandRed font-mono font-bold text-[11px] tracking-[2px] px-6 py-3 transition-all duration-300">
+                CHECK WORKS
+              </a>
+            </div>
+          </div>
+
+          <!-- Middle area: Sub Philosophy -->
+          <div class="border-t border-brandRed/10 pt-8 mb-12">
+            <p class="italic font-normal text-[17px] sm:text-[20px] leading-[1.5] text-brandRed/95 max-w-[640px]">
+              "IN THE DESIGN ROOM, I FOCUS ON DETAIL AND CONSISTENCY, ALWAYS LETTING THE CONTENT BREATHE AND SPEAK FOR ITSELF."
+            </p>
+          </div>
+
+          <!-- Bottom area: Vertical content sections -->
+          <div class="flex flex-col gap-10 max-w-[680px]">
+            <!-- Section A -->
+            <div class="flex flex-col gap-2">
+              <span class="text-[11px] font-mono tracking-[3px] opacity-60">ABOUT ME</span>
+              <p class="text-[13px] font-normal leading-[1.65] text-brandRed normal-case">
+                서울 기반의 콘텐츠 디자이너로, 브랜드 메시지를 시각적으로 효과있게 전달하는 광고 마케팅 콘텐츠를 제작합니다. 다양한 디지털 캠페인과 SNS 콘텐츠 제작 경험을 보유하고 있으며, 소비자 반응 데이터를 기반으로 디자인 방향을 개선합니다.
+              </p>
+            </div>
+
+            <!-- Section B -->
+            <div class="flex flex-col gap-2">
+              <span class="text-[11px] font-mono tracking-[3px] opacity-60">EXPERIENCE</span>
+              <p class="text-[13px] font-normal leading-[1.65] text-brandRed normal-case">
+                아데나소프트웨어에서 3년간 광고 콘텐츠 디자이너로 근무하며 SNS, 구글DA 광고 소재 제작 및 퍼포먼스 최적화를 담당했습니다. 이전에는 더워터멜론TWC와 포스터비쥬얼에서 주니어 아트디렉터로 청정원, 에이스침대 등 브랜드 캠페인에 참여했습니다.
+              </p>
+            </div>
+
+            <!-- Section C -->
+            <div class="flex flex-col gap-2 border-b border-brandRed/10 pb-12">
+              <span class="text-[11px] font-mono tracking-[3px] opacity-60">TOOLS</span>
+              <p class="text-[13px] font-normal leading-[1.65] text-brandRed">
+                Adobe Photoshop, Illustrator, Dimension, Figma, Midjourney
+              </p>
+            </div>
+          </div>
+
+          <!-- Contact details -->
+          <div class="flex flex-col gap-4 mt-8">
+            <span class="text-[11px] font-mono tracking-[3px] opacity-60">CONTACT</span>
+            <div class="flex flex-col gap-3">
+              <a href="mailto:THDGMLDLSGH@NAVER.COM" class="text-[26px] sm:text-[36px] md:text-[44px] font-black tracking-tighter leading-none hover:text-white transition-colors duration-300">
+                THDGMLDLSGH@NAVER.COM
+              </a>
+              <a href="tel:+82-10-3125-7371" class="text-[20px] sm:text-[28px] md:text-[34px] font-black tracking-tighter leading-none hover:text-white transition-colors duration-300">
+                +82 10-3125-7371
+              </a>
+            </div>
+          </div>
+
+        </div>
+      </div>
+
+      <!-- SNS Links footer line -->
+      <div class="flex justify-between items-center w-full mt-24 border-t border-brandRed/10 pt-6 select-none">
+        <a href="https://instagram.com" target="_blank" rel="noopener noreferrer" class="text-[11px] font-bold tracking-widest text-[#E50914] underline underline-offset-4 decoration-2 hover:text-white transition-colors">
+          INSTAGRAM
+        </a>
+        <a href="https://behance.net" target="_blank" rel="noopener noreferrer" class="text-[11px] font-bold tracking-widest text-[#E50914] underline underline-offset-4 decoration-2 hover:text-white transition-colors">
+          BEHANCE
+        </a>
+      </div>
+
+    </main>
+
+    <!-- SECTION 6: CTA BAR -->
+    <section class="w-full mt-[120px] border-t border-brandRed bg-[#000000] px-6 md:px-12 py-10 flex flex-col md:flex-row justify-between items-start md:items-center gap-6 select-none">
+      <div class="flex flex-col gap-1.5">
+        <span class="font-semibold text-[10px] tracking-widest text-brandRed">
+          READY TO WORK ON YOUR NEXT LOOK
+        </span>
+        <a
+          href="mailto:THDGMLDLSGH@NAVER.COM"
+          class="font-black text-lg sm:text-2xl lg:text-3xl tracking-tighter text-brandRed hover:opacity-85 transition-opacity"
+        >
+          THDGMLDLSGH@NAVER.COM
+        </a>
+      </div>
+      <div class="font-semibold text-[10px] tracking-widest text-brandRed md:text-right">
+        CONTENT DESIGNER
+      </div>
+    </section>
+
+    <!-- SECTION 7: FOOTER -->
+    <footer id="footer" class="w-full bg-[#E50914] text-[#000000] px-6 md:px-12 pt-20 pb-8 flex flex-col gap-24 select-none">
+      
+      <!-- Footer Top Links Row -->
+      <div class="grid grid-cols-1 md:grid-cols-3 gap-12 text-[12px] font-bold tracking-widest">
+        <div class="flex flex-col gap-3">
+          <span class="opacity-60 text-[10px] font-mono tracking-[3px]">MENU</span>
+          <div class="flex flex-col gap-1.5">
+            <a href="works.html" class="text-left font-black hover:opacity-75">WORKS</a>
+            <a href="work-video.html" class="text-left font-black hover:opacity-75">VIDEO</a>
+            <a href="work-banners.html" class="text-left font-black hover:opacity-75">BANNERS</a>
+            <a href="work-branding.html" class="text-left font-black hover:opacity-75">BRANDING</a>
+          </div>
+        </div>
+        
+        <div class="flex flex-col gap-3">
+          <span class="opacity-60 text-[10px] font-mono tracking-[3px]">SOCIAL</span>
+          <div class="flex flex-col gap-1.5">
+            <a href="index.html" class="font-black hover:opacity-75">INFO/HOME</a>
+            <a href="https://instagram.com" target="_blank" rel="noopener noreferrer" class="font-black hover:opacity-75">INSTAGRAM</a>
+            <a href="https://behance.net" target="_blank" rel="noopener noreferrer" class="font-black hover:opacity-75">BEHANCE</a>
+          </div>
+        </div>
+
+        <div class="flex flex-col gap-3 md:text-right">
+          <span class="opacity-60 text-[10px] font-mono tracking-[3px]">LOCATION</span>
+          <span class="font-black">SEOUL / SOUTH KOREA</span>
+        </div>
+      </div>
+
+      <!-- Footer Monstrous Typographic Display: SONG [portrait] HEE -->
+      <div class="w-full flex items-center justify-center overflow-hidden tracking-tighter font-black text-[#000000]">
+        <div class="flex items-center justify-center leading-[0.8] text-[15vw] sm:text-[18vw] md:text-[15.5vw] lg:text-[18vw] xl:text-[23vw]">
+          <span>SONG</span>
+          
+          <!-- Embedded high-end contrast-blended portrait photo box -->
+          <div class="w-[8vw] h-[11vw] min-w-[50px] min-h-[70px] max-w-[170px] max-h-[238px] mx-2 md:mx-6 inline-block align-middle bg-black overflow-hidden relative border border-black group">
+            <img
+              src="https://images.unsplash.com/photo-1544025313-94ddf0286df2?auto=format&fit=crop&w=400&q=80"
+              alt="Songhee Lee Portrait Silhouette"
+              class="w-full h-full object-cover filter grayscale contrast-[1.8] brightness-[0.75] mix-blend-multiply opacity-100 transition-transform duration-500 group-hover:scale-105"
+            />
+          </div>
+          
+          <span>HEE</span>
+        </div>
+      </div>
+
+      <!-- Footer Bottom Metadata Credits -->
+      <div class="flex flex-col sm:flex-row justify-between items-center gap-4 text-[10px] tracking-widest font-bold border-t border-black/10 pt-6">
+        <span>COPYRIGHT © 2025 SONGHEE LEE</span>
+        <span>DESIGN & DEV @SONGHEE</span>
+      </div>
+
+    </footer>
+
+    <!-- INTERACTIVE SCRIPTS -->
+    <script>
+      // Toggle Overlay Menu
+      const menuTrigger = document.getElementById('menu-trigger');
+      const menuOverlay = document.getElementById('menu-overlay');
+      let isMenuOpen = false;
+
+      function toggleMenu() {
+        isMenuOpen = !isMenuOpen;
+        if (isMenuOpen) {
+          menuTrigger.textContent = '×';
+          menuOverlay.classList.remove('opacity-0', '-translate-y-full', 'pointer-events-none');
+          menuOverlay.classList.add('opacity-100', 'translate-y-0');
+        } else {
+          menuTrigger.textContent = '+';
+          menuOverlay.classList.add('opacity-0', '-translate-y-full', 'pointer-events-none');
+          menuOverlay.classList.remove('opacity-100', 'translate-y-0');
+        }
+      }
+    </script>
+  </body>
+</html>

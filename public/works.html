@@ -1,0 +1,731 @@
+<!doctype html>
+<html lang="ko">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>SONGHEE LEE — WORKS [19]</title>
+    <!-- Google Fonts Public Sans -->
+    <style>
+      @import url('https://fonts.googleapis.com/css2?family=Public+Sans:wght=100;400;700;900&display=swap');
+      
+      body {
+        font-family: 'Public Sans', sans-serif;
+        background-color: #000000;
+        color: #E50914;
+        text-transform: uppercase;
+        user-select: none;
+      }
+      
+      /* Webkit scrollbar personalization */
+      ::-webkit-scrollbar {
+        width: 6px;
+      }
+      ::-webkit-scrollbar-track {
+        background: #000000;
+      }
+      ::-webkit-scrollbar-thumb {
+        background: #E50914;
+        border-radius: 3px;
+      }
+    </style>
+    <!-- Tailwind CSS Play CDN -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script>
+      tailwind.config = {
+        theme: {
+          extend: {
+            colors: {
+              brandRed: '#E50914',
+            },
+            letterSpacing: {
+              'tight-extreme': '-0.04em',
+            }
+          }
+        }
+      }
+    </script>
+  </head>
+  <body class="relative min-h-screen bg-[#000000] text-[#E50914] antialiased">
+    
+    <!-- SECTION 1: FIXED NAVIGATION BAR -->
+    <nav class="fixed top-0 left-0 w-full h-[60px] z-50 flex items-center justify-between px-6 md:px-12 bg-black/80 backdrop-blur-sm border-b border-brandRed/10">
+      <a href="index.html" class="font-extrabold text-[14px] tracking-widest text-[#E50914] hover:opacity-80 transition-opacity">
+        SONGHEE
+      </a>
+      
+      <button 
+        id="menu-trigger"
+        onclick="toggleMenu()"
+        class="text-[24px] font-light text-[#E50914] cursor-pointer focus:outline-none select-none transition-transform duration-300 hover:scale-110"
+        aria-label="Toggle Navigation"
+      >
+        +
+      </button>
+    </nav>
+
+    <!-- FULL-SCREEN OVERLAY MENU -->
+    <div 
+      id="menu-overlay"
+      class="fixed inset-0 bg-[#000000] z-40 flex flex-col justify-between p-6 md:p-12 transition-all duration-500 ease-in-out opacity-0 -translate-y-full pointer-events-none"
+    >
+      <div class="h-[60px]"></div>
+      
+      <div class="flex flex-col gap-6 md:gap-8 justify-center flex-grow text-center">
+        <a href="works.html" class="font-black text-4xl sm:text-6xl md:text-8xl tracking-tight-extreme text-[#E50914] hover:italic transition-all duration-200">
+          WORKS
+        </a>
+        <a href="work-video.html" class="font-black text-4xl sm:text-6xl md:text-8xl tracking-tight-extreme text-[#E50914] hover:italic transition-all duration-200">
+          VIDEO
+        </a>
+        <a href="work-banners.html" class="font-black text-4xl sm:text-6xl md:text-8xl tracking-tight-extreme text-[#E50914] hover:italic transition-all duration-200">
+          BANNERS
+        </a>
+        <a href="work-branding.html" class="font-black text-4xl sm:text-6xl md:text-8xl tracking-tight-extreme text-[#E50914] hover:italic transition-all duration-200">
+          BRANDING
+        </a>
+      </div>
+
+      <div class="grid grid-cols-1 md:grid-cols-3 gap-6 pt-6 border-t border-brandRed/20 text-[11px] font-normal tracking-wider">
+        <div class="flex flex-col gap-1">
+          <span class="opacity-50">SOCIALS</span>
+          <a href="https://instagram.com" target="_blank" rel="noopener noreferrer" class="hover:underline">INSTAGRAM</a>
+          <a href="https://behance.net" target="_blank" rel="noopener noreferrer" class="hover:underline">BEHANCE</a>
+        </div>
+        <div class="flex flex-col gap-1">
+          <span class="opacity-50">CONTACT</span>
+          <a href="mailto:THDGMLDLSGH@NAVER.COM" class="hover:underline">THDGMLDLSGH@NAVER.COM</a>
+        </div>
+        <div class="flex flex-col gap-1 md:text-right">
+          <span class="opacity-50">LOCATION</span>
+          <span>SEOUL / SOUTH KOREA</span>
+        </div>
+      </div>
+    </div>
+
+    <!-- MOUSE-FOLLOWING FLOATING THUMBNAIL PREVIEW -->
+    <div
+      id="thumbnail-preview"
+      class="fixed pointer-events-none z-50 w-[200px] h-[130px] bg-[#141414] border border-brandRed overflow-hidden flex flex-col justify-between p-3 shadow-2xl opacity-0 transition-opacity duration-300"
+      style="left: 0; top: 0;"
+    >
+      <div class="absolute inset-0 z-0">
+        <img
+          id="preview-image"
+          src=""
+          alt="Grade Preview"
+          class="w-full h-full object-cover filter grayscale contrast-[1.8] brightness-[0.55] opacity-90 transition-opacity duration-200"
+        />
+        <div class="absolute inset-0 bg-gradient-to-t from-black/80 via-transparent to-black/60"></div>
+      </div>
+
+      <div class="absolute inset-x-0 top-0 h-2 flex justify-between pointer-events-none opacity-40 z-10">
+        <span class="border-t border-l border-brandRed w-1.5 h-1.5"></span>
+        <span class="border-t border-r border-brandRed w-1.5 h-1.5"></span>
+      </div>
+
+      <div class="flex justify-between items-start font-mono text-[8px] tracking-widest text-brandRed font-bold z-10">
+        <span id="preview-id">[01]</span>
+        <span id="preview-category">VIDEO</span>
+      </div>
+
+      <div class="flex flex-col items-center justify-center text-center flex-grow z-10">
+        <div class="w-6 h-6 border border-brandRed/40 rounded-full flex items-center justify-center animate-spin mb-0.5">
+          <span class="text-[5px] font-mono">+</span>
+        </div>
+      </div>
+
+      <div class="flex justify-between items-end text-[7px] font-mono tracking-widest text-[#E50914]/80 z-10">
+        <span>PREVIEW</span>
+        <span id="preview-year">© 2025</span>
+      </div>
+
+      <div class="absolute inset-x-0 bottom-0 h-2 flex justify-between pointer-events-none opacity-40 z-10">
+        <span class="border-b border-l border-brandRed w-1.5 h-1.5"></span>
+        <span class="border-b border-r border-brandRed w-1.5 h-1.5"></span>
+      </div>
+    </div>
+
+    <!-- MAIN WORKS LIST CONTENT -->
+    <main class="w-full pt-[140px] px-6 md:px-12 flex flex-col gap-12">
+      
+      <!-- Top Title Area -->
+      <section class="w-full flex flex-col items-start select-none">
+        <span class="font-mono text-[11px] tracking-[4px] text-brandRed block mb-2 opacity-80">
+          ALL
+        </span>
+        <div class="relative inline-block w-full">
+          <h1 class="font-black text-[12vw] sm:text-[10vw] md:text-[80px] lg:text-[100px] leading-none tracking-tighter text-brandRed select-none mb-4">
+            WORKS
+            <sup class="text-sm font-mono tracking-widest font-normal text-brandRed ml-2 relative -top-[1.2rem] sm:-top-[2.2rem]">
+              [19]
+            </sup>
+          </h1>
+        </div>
+
+        <!-- Custom Interactive Category Filter Bar -->
+        <div id="filter-bar" class="flex flex-wrap gap-x-8 gap-y-3 pb-6 border-b border-brandRed/20 w-full text-[11px] font-mono tracking-widest text-brandRed/50 mt-4 mb-2">
+          <button onclick="filterCategory('ALL')" class="filter-btn hover:text-brandRed transition-colors font-black text-brandRed">[ALL]</button>
+          <button onclick="filterCategory('VIDEO')" class="filter-btn hover:text-brandRed transition-colors">[VIDEO]</button>
+          <button onclick="filterCategory('BANNERS & ADS')" class="filter-btn hover:text-brandRed transition-colors">[BANNERS & ADS]</button>
+          <button onclick="filterCategory('BRANDING')" class="filter-btn hover:text-brandRed transition-colors">[BRANDING]</button>
+        </div>
+      </section>
+
+      <!-- Interactive Lists Section -->
+      <section id="works-list" class="w-full flex flex-col select-none mb-24">
+        
+        <!-- Row 1 -->
+        <div 
+          class="works-row group flex flex-col sm:flex-row sm:items-center justify-between py-[12px] cursor-pointer transition-all duration-300 border-b border-brandRed/5 hover:bg-brandRed/5 px-4 -mx-4 uppercase"
+          data-id="01"
+          data-category="VIDEO"
+          data-year="2022"
+          data-image="https://images.unsplash.com/photo-1544025313-94ddf0286df2?auto=format&fit=crop&w=400&q=80"
+        >
+          <div class="flex items-baseline gap-2.5 flex-grow truncate mr-4">
+            <span class="font-bold text-[16px] text-brandRed group-hover:text-white transition-colors duration-300">청정원 안주야 TVC</span>
+            <span class="text-brandRed/30 font-light text-sm select-none">/</span>
+            <span class="font-normal text-[14px] text-brandRed/80 group-hover:text-white/90 transition-colors duration-300">청정원</span>
+          </div>
+          <div class="flex items-center gap-16 text-right flex-shrink-0 mt-2 sm:mt-0">
+            <span class="font-normal text-[12px] tracking-widest text-brandRed/80 w-[140px] text-right group-hover:text-white/80 transition-colors duration-300 hidden sm:inline">VIDEO</span>
+            <span class="font-normal text-[12px] tracking-widest text-brandRed/80 w-[60px] text-right group-hover:text-white/90 transition-colors duration-300">2022</span>
+          </div>
+        </div>
+
+        <!-- Row 2 -->
+        <div 
+          class="works-row group flex flex-col sm:flex-row sm:items-center justify-between py-[12px] cursor-pointer transition-all duration-300 border-b border-brandRed/5 hover:bg-brandRed/5 px-4 -mx-4 uppercase"
+          data-id="02"
+          data-category="VIDEO"
+          data-year="2022"
+          data-image="https://images.unsplash.com/photo-1563245372-f21724e3856d?auto=format&fit=crop&w=400&q=80"
+        >
+          <div class="flex items-baseline gap-2.5 flex-grow truncate mr-4">
+            <span class="font-bold text-[16px] text-brandRed group-hover:text-white transition-colors duration-300">청정원 호밍스만두 TVC</span>
+            <span class="text-brandRed/30 font-light text-sm select-none">/</span>
+            <span class="font-normal text-[14px] text-brandRed/80 group-hover:text-white/90 transition-colors duration-300">청정원</span>
+          </div>
+          <div class="flex items-center gap-16 text-right flex-shrink-0 mt-2 sm:mt-0">
+            <span class="font-normal text-[12px] tracking-widest text-brandRed/80 w-[140px] text-right group-hover:text-white/80 transition-colors duration-300 hidden sm:inline">VIDEO</span>
+            <span class="font-normal text-[12px] tracking-widest text-brandRed/80 w-[60px] text-right group-hover:text-white/90 transition-colors duration-300">2022</span>
+          </div>
+        </div>
+
+        <!-- Row 3 -->
+        <div 
+          class="works-row group flex flex-col sm:flex-row sm:items-center justify-between py-[12px] cursor-pointer transition-all duration-300 border-b border-brandRed/5 hover:bg-brandRed/5 px-4 -mx-4 uppercase"
+          data-id="03"
+          data-category="BANNERS & ADS"
+          data-year="2021"
+          data-image="https://images.unsplash.com/photo-1505691938895-1758d7feb511?auto=format&fit=crop&w=400&q=80"
+        >
+          <div class="flex items-baseline gap-2.5 flex-grow truncate mr-4">
+            <span class="font-bold text-[16px] text-brandRed group-hover:text-white transition-colors duration-300">에이스침대 디지털 캠페인</span>
+            <span class="text-brandRed/30 font-light text-sm select-none">/</span>
+            <span class="font-normal text-[14px] text-brandRed/80 group-hover:text-white/90 transition-colors duration-300">에이스침대</span>
+          </div>
+          <div class="flex items-center gap-16 text-right flex-shrink-0 mt-2 sm:mt-0">
+            <span class="font-normal text-[12px] tracking-widest text-brandRed/80 w-[140px] text-right group-hover:text-white/80 transition-colors duration-300 hidden sm:inline">BANNERS & ADS</span>
+            <span class="font-normal text-[12px] tracking-widest text-brandRed/80 w-[60px] text-right group-hover:text-white/90 transition-colors duration-300">2021</span>
+          </div>
+        </div>
+
+        <!-- Row 4 -->
+        <div 
+          class="works-row group flex flex-col sm:flex-row sm:items-center justify-between py-[12px] cursor-pointer transition-all duration-300 border-b border-brandRed/5 hover:bg-brandRed/5 px-4 -mx-4 uppercase"
+          data-id="04"
+          data-category="BANNERS & ADS"
+          data-year="2023"
+          data-image="https://images.unsplash.com/photo-1618005182384-a83a8bd57fbe?auto=format&fit=crop&w=400&q=80"
+        >
+          <div class="flex items-baseline gap-2.5 flex-grow truncate mr-4">
+            <span class="font-bold text-[16px] text-brandRed group-hover:text-white transition-colors duration-300">SNS 퍼포먼스 광고</span>
+            <span class="text-brandRed/30 font-light text-sm select-none">/</span>
+            <span class="font-normal text-[14px] text-brandRed/80 group-hover:text-white/90 transition-colors duration-300">아데나소프트웨어</span>
+          </div>
+          <div class="flex items-center gap-16 text-right flex-shrink-0 mt-2 sm:mt-0">
+            <span class="font-normal text-[12px] tracking-widest text-brandRed/80 w-[140px] text-right group-hover:text-white/80 transition-colors duration-300 hidden sm:inline">BANNERS & ADS</span>
+            <span class="font-normal text-[12px] tracking-widest text-brandRed/80 w-[60px] text-right group-hover:text-white/90 transition-colors duration-300">2023</span>
+          </div>
+        </div>
+
+        <!-- Row 5 -->
+        <div 
+          class="works-row group flex flex-col sm:flex-row sm:items-center justify-between py-[12px] cursor-pointer transition-all duration-300 border-b border-brandRed/5 hover:bg-brandRed/5 px-4 -mx-4 uppercase"
+          data-id="05"
+          data-category="BRANDING"
+          data-year="2024"
+          data-image="https://images.unsplash.com/photo-1507238691740-187a5b1d37b8?auto=format&fit=crop&w=400&q=80"
+        >
+          <div class="flex items-baseline gap-2.5 flex-grow truncate mr-4">
+            <span class="font-bold text-[16px] text-brandRed group-hover:text-white transition-colors duration-300">이벤트 프로모션 랜딩페이지</span>
+            <span class="text-brandRed/30 font-light text-sm select-none">/</span>
+            <span class="font-normal text-[14px] text-brandRed/80 group-hover:text-white/90 transition-colors duration-300">아데나소프트웨어</span>
+          </div>
+          <div class="flex items-center gap-16 text-right flex-shrink-0 mt-2 sm:mt-0">
+            <span class="font-normal text-[12px] tracking-widest text-brandRed/80 w-[140px] text-right group-hover:text-white/80 transition-colors duration-300 hidden sm:inline">BRANDING</span>
+            <span class="font-normal text-[12px] tracking-widest text-brandRed/80 w-[60px] text-right group-hover:text-white/90 transition-colors duration-300">2024</span>
+          </div>
+        </div>
+
+        <!-- Row 6 -->
+        <div 
+          class="works-row group flex flex-col sm:flex-row sm:items-center justify-between py-[12px] cursor-pointer transition-all duration-300 border-b border-brandRed/5 hover:bg-brandRed/5 px-4 -mx-4 uppercase"
+          data-id="06"
+          data-category="BRANDING"
+          data-year="2023"
+          data-image="https://images.unsplash.com/photo-1497366216548-37526070297c?auto=format&fit=crop&w=400&q=80"
+        >
+          <div class="flex items-baseline gap-2.5 flex-grow truncate mr-4">
+            <span class="font-bold text-[16px] text-brandRed group-hover:text-white transition-colors duration-300">전시 부스 디자인</span>
+            <span class="text-brandRed/30 font-light text-sm select-none">/</span>
+            <span class="font-normal text-[14px] text-brandRed/80 group-hover:text-white/90 transition-colors duration-300">아데나소프트웨어</span>
+          </div>
+          <div class="flex items-center gap-16 text-right flex-shrink-0 mt-2 sm:mt-0">
+            <span class="font-normal text-[12px] tracking-widest text-brandRed/80 w-[140px] text-right group-hover:text-white/80 transition-colors duration-300 hidden sm:inline">BRANDING</span>
+            <span class="font-normal text-[12px] tracking-widest text-brandRed/80 w-[60px] text-right group-hover:text-white/90 transition-colors duration-300">2023</span>
+          </div>
+        </div>
+
+        <!-- Row 7 -->
+        <div 
+          class="works-row group flex flex-col sm:flex-row sm:items-center justify-between py-[12px] cursor-pointer transition-all duration-300 border-b border-brandRed/5 hover:bg-brandRed/5 px-4 -mx-4 uppercase"
+          data-id="07"
+          data-category="BANNERS & ADS"
+          data-year="2024"
+          data-image="https://images.unsplash.com/photo-1542751371-adc38448a05e?auto=format&fit=crop&w=400&q=80"
+        >
+          <div class="flex items-baseline gap-2.5 flex-grow truncate mr-4">
+            <span class="font-bold text-[16px] text-brandRed group-hover:text-white transition-colors duration-300">구글 DA 광고 소재</span>
+            <span class="text-brandRed/30 font-light text-sm select-none">/</span>
+            <span class="font-normal text-[14px] text-brandRed/80 group-hover:text-white/90 transition-colors duration-300">아데나소프트웨어</span>
+          </div>
+          <div class="flex items-center gap-16 text-right flex-shrink-0 mt-2 sm:mt-0">
+            <span class="font-normal text-[12px] tracking-widest text-brandRed/80 w-[140px] text-right group-hover:text-white/80 transition-colors duration-300 hidden sm:inline">BANNERS & ADS</span>
+            <span class="font-normal text-[12px] tracking-widest text-brandRed/80 w-[60px] text-right group-hover:text-white/90 transition-colors duration-300">2024</span>
+          </div>
+        </div>
+
+        <!-- Row 8 -->
+        <div 
+          class="works-row group flex flex-col sm:flex-row sm:items-center justify-between py-[12px] cursor-pointer transition-all duration-300 border-b border-brandRed/5 hover:bg-brandRed/5 px-4 -mx-4 uppercase"
+          data-id="08"
+          data-category="BRANDING"
+          data-year="2025"
+          data-image="https://images.unsplash.com/photo-1550684848-fac1c5b4e853?auto=format&fit=crop&w=400&q=80"
+        >
+          <div class="flex items-baseline gap-2.5 flex-grow truncate mr-4">
+            <span class="font-bold text-[16px] text-brandRed group-hover:text-white transition-colors duration-300">키비주얼 디자인</span>
+            <span class="text-brandRed/30 font-light text-sm select-none">/</span>
+            <span class="font-normal text-[14px] text-brandRed/80 group-hover:text-white/90 transition-colors duration-300">아데나소프트웨어</span>
+          </div>
+          <div class="flex items-center gap-16 text-right flex-shrink-0 mt-2 sm:mt-0">
+            <span class="font-normal text-[12px] tracking-widest text-brandRed/80 w-[140px] text-right group-hover:text-white/80 transition-colors duration-300 hidden sm:inline">BRANDING</span>
+            <span class="font-normal text-[12px] tracking-widest text-brandRed/80 w-[60px] text-right group-hover:text-white/90 transition-colors duration-300">2025</span>
+          </div>
+        </div>
+
+        <!-- Row 9 -->
+        <div 
+          class="works-row group flex flex-col sm:flex-row sm:items-center justify-between py-[12px] cursor-pointer transition-all duration-300 border-b border-brandRed/5 hover:bg-brandRed/5 px-4 -mx-4 uppercase"
+          data-id="09"
+          data-category="VIDEO"
+          data-year="2026"
+          data-image="https://images.unsplash.com/photo-1544716278-ca5e3f4abd8c?auto=format&fit=crop&w=400&q=80"
+        >
+          <div class="flex items-baseline gap-2.5 flex-grow truncate mr-4">
+            <span class="font-bold text-[16px] text-brandRed group-hover:text-white transition-colors duration-300">THE ERA OF MINIMALISM TVC</span>
+            <span class="text-brandRed/30 font-light text-sm select-none">/</span>
+            <span class="font-normal text-[14px] text-brandRed/80 group-hover:text-white/90 transition-colors duration-300">MINIMAL CO</span>
+          </div>
+          <div class="flex items-center gap-16 text-right flex-shrink-0 mt-2 sm:mt-0">
+            <span class="font-normal text-[12px] tracking-widest text-brandRed/80 w-[140px] text-right group-hover:text-white/80 transition-colors duration-300 hidden sm:inline">VIDEO</span>
+            <span class="font-normal text-[12px] tracking-widest text-brandRed/80 w-[60px] text-right group-hover:text-white/90 transition-colors duration-300">2026</span>
+          </div>
+        </div>
+
+        <!-- Row 10 -->
+        <div 
+          class="works-row group flex flex-col sm:flex-row sm:items-center justify-between py-[12px] cursor-pointer transition-all duration-300 border-b border-brandRed/5 hover:bg-brandRed/5 px-4 -mx-4 uppercase"
+          data-id="10"
+          data-category="BANNERS & ADS"
+          data-year="2025"
+          data-image="https://images.unsplash.com/photo-1514525253161-7a46d19cd819?auto=format&fit=crop&w=400&q=80"
+        >
+          <div class="flex items-baseline gap-2.5 flex-grow truncate mr-4">
+            <span class="font-bold text-[16px] text-brandRed group-hover:text-white transition-colors duration-300">HYPER-IDENTITY LAUNCH CAMPAIGN</span>
+            <span class="text-brandRed/30 font-light text-sm select-none">/</span>
+            <span class="font-normal text-[14px] text-brandRed/80 group-hover:text-white/90 transition-colors duration-300">AURA CORP</span>
+          </div>
+          <div class="flex items-center gap-16 text-right flex-shrink-0 mt-2 sm:mt-0">
+            <span class="font-normal text-[12px] tracking-widest text-brandRed/80 w-[140px] text-right group-hover:text-white/80 transition-colors duration-300 hidden sm:inline">BANNERS & ADS</span>
+            <span class="font-normal text-[12px] tracking-widest text-brandRed/80 w-[60px] text-right group-hover:text-white/90 transition-colors duration-300">2025</span>
+          </div>
+        </div>
+
+        <!-- Row 11 -->
+        <div 
+          class="works-row group flex flex-col sm:flex-row sm:items-center justify-between py-[12px] cursor-pointer transition-all duration-300 border-b border-brandRed/5 hover:bg-brandRed/5 px-4 -mx-4 uppercase"
+          data-id="11"
+          data-category="VIDEO"
+          data-year="2025"
+          data-image="https://images.unsplash.com/photo-1472289065668-ce650ac443d2?auto=format&fit=crop&w=400&q=80"
+        >
+          <div class="flex items-baseline gap-2.5 flex-grow truncate mr-4">
+            <span class="font-bold text-[16px] text-brandRed group-hover:text-white transition-colors duration-300">THE DAILY ARTS FILM REEL</span>
+            <span class="text-brandRed/30 font-light text-sm select-none">/</span>
+            <span class="font-normal text-[14px] text-brandRed/80 group-hover:text-white/90 transition-colors duration-300">SEOUL ARTS CENTER</span>
+          </div>
+          <div class="flex items-center gap-16 text-right flex-shrink-0 mt-2 sm:mt-0">
+            <span class="font-normal text-[12px] tracking-widest text-brandRed/80 w-[140px] text-right group-hover:text-white/80 transition-colors duration-300 hidden sm:inline">VIDEO</span>
+            <span class="font-normal text-[12px] tracking-widest text-brandRed/80 w-[60px] text-right group-hover:text-white/90 transition-colors duration-300">2025</span>
+          </div>
+        </div>
+
+        <!-- Row 12 -->
+        <div 
+          class="works-row group flex flex-col sm:flex-row sm:items-center justify-between py-[12px] cursor-pointer transition-all duration-300 border-b border-brandRed/5 hover:bg-brandRed/5 px-4 -mx-4 uppercase"
+          data-id="12"
+          data-category="VIDEO"
+          data-year="2025"
+          data-image="https://images.unsplash.com/photo-1509198397868-475647b2a1e5?auto=format&fit=crop&w=400&q=80"
+        >
+          <div class="flex items-baseline gap-2.5 flex-grow truncate mr-4">
+            <span class="font-bold text-[16px] text-brandRed group-hover:text-white transition-colors duration-300">LUXURY APOTHECARY MOOD FILM</span>
+            <span class="text-brandRed/30 font-light text-sm select-none">/</span>
+            <span class="font-normal text-[14px] text-brandRed/80 group-hover:text-white/90 transition-colors duration-300">APOTHECARY SEOUL</span>
+          </div>
+          <div class="flex items-center gap-16 text-right flex-shrink-0 mt-2 sm:mt-0">
+            <span class="font-normal text-[12px] tracking-widest text-brandRed/80 w-[140px] text-right group-hover:text-white/80 transition-colors duration-300 hidden sm:inline">VIDEO</span>
+            <span class="font-normal text-[12px] tracking-widest text-brandRed/80 w-[60px] text-right group-hover:text-white/90 transition-colors duration-300">2025</span>
+          </div>
+        </div>
+
+        <!-- Row 13 -->
+        <div 
+          class="works-row group flex flex-col sm:flex-row sm:items-center justify-between py-[12px] cursor-pointer transition-all duration-300 border-b border-brandRed/5 hover:bg-brandRed/5 px-4 -mx-4 uppercase"
+          data-id="13"
+          data-category="BRANDING"
+          data-year="2024"
+          data-image="https://images.unsplash.com/photo-1546519638-68e109498ffc?auto=format&fit=crop&w=400&q=80"
+        >
+          <div class="flex items-baseline gap-2.5 flex-grow truncate mr-4">
+            <span class="font-bold text-[16px] text-brandRed group-hover:text-white transition-colors duration-300">EDITORIAL MUSE METRICS GRID</span>
+            <span class="text-brandRed/30 font-light text-sm select-none">/</span>
+            <span class="font-normal text-[14px] text-brandRed/80 group-hover:text-white/90 transition-colors duration-300">MUSE MAGAZINE</span>
+          </div>
+          <div class="flex items-center gap-16 text-right flex-shrink-0 mt-2 sm:mt-0">
+            <span class="font-normal text-[12px] tracking-widest text-brandRed/80 w-[140px] text-right group-hover:text-white/80 transition-colors duration-300 hidden sm:inline">BRANDING</span>
+            <span class="font-normal text-[12px] tracking-widest text-brandRed/80 w-[60px] text-right group-hover:text-white/90 transition-colors duration-300">2024</span>
+          </div>
+        </div>
+
+        <!-- Row 14 -->
+        <div 
+          class="works-row group flex flex-col sm:flex-row sm:items-center justify-between py-[12px] cursor-pointer transition-all duration-300 border-b border-brandRed/5 hover:bg-brandRed/5 px-4 -mx-4 uppercase"
+          data-id="14"
+          data-category="BANNERS & ADS"
+          data-year="2024"
+          data-image="https://images.unsplash.com/photo-1513836279014-a89f7a76ae86?auto=format&fit=crop&w=400&q=80"
+        >
+          <div class="flex items-baseline gap-2.5 flex-grow truncate mr-4">
+            <span class="font-bold text-[16px] text-brandRed group-hover:text-white transition-colors duration-300">SEOUL FASHION WEEK BANNERS</span>
+            <span class="text-brandRed/30 font-light text-sm select-none">/</span>
+            <span class="font-normal text-[14px] text-brandRed/80 group-hover:text-white/90 transition-colors duration-300">SEOUL CITY</span>
+          </div>
+          <div class="flex items-center gap-16 text-right flex-shrink-0 mt-2 sm:mt-0">
+            <span class="font-normal text-[12px] tracking-widest text-brandRed/80 w-[140px] text-right group-hover:text-white/80 transition-colors duration-300 hidden sm:inline">BANNERS & ADS</span>
+            <span class="font-normal text-[12px] tracking-widest text-brandRed/80 w-[60px] text-right group-hover:text-white/90 transition-colors duration-300">2024</span>
+          </div>
+        </div>
+
+        <!-- Row 15 -->
+        <div 
+          class="works-row group flex flex-col sm:flex-row sm:items-center justify-between py-[12px] cursor-pointer transition-all duration-300 border-b border-brandRed/5 hover:bg-brandRed/5 px-4 -mx-4 uppercase"
+          data-id="15"
+          data-category="BRANDING"
+          data-year="2024"
+          data-image="https://images.unsplash.com/photo-1486406146926-c627a92ad1ab?auto=format&fit=crop&w=400&q=80"
+        >
+          <div class="flex items-baseline gap-2.5 flex-grow truncate mr-4">
+            <span class="font-bold text-[16px] text-brandRed group-hover:text-white transition-colors duration-300">KINETIC TYPOGRAPHY SIGNAGE</span>
+            <span class="text-brandRed/30 font-light text-sm select-none">/</span>
+            <span class="font-normal text-[14px] text-brandRed/80 group-hover:text-white/90 transition-colors duration-300">MOTION LABS</span>
+          </div>
+          <div class="flex items-center gap-16 text-right flex-shrink-0 mt-2 sm:mt-0">
+            <span class="font-normal text-[12px] tracking-widest text-brandRed/80 w-[140px] text-right group-hover:text-white/80 transition-colors duration-300 hidden sm:inline">BRANDING</span>
+            <span class="font-normal text-[12px] tracking-widest text-brandRed/80 w-[60px] text-right group-hover:text-white/90 transition-colors duration-300">2024</span>
+          </div>
+        </div>
+
+        <!-- Row 16 -->
+        <div 
+          class="works-row group flex flex-col sm:flex-row sm:items-center justify-between py-[12px] cursor-pointer transition-all duration-300 border-b border-brandRed/5 hover:bg-brandRed/5 px-4 -mx-4 uppercase"
+          data-id="16"
+          data-category="BRANDING"
+          data-year="2023"
+          data-image="https://images.unsplash.com/photo-1472289065668-ce650ac443d2?auto=format&fit=crop&w=400&q=80"
+        >
+          <div class="flex items-baseline gap-2.5 flex-grow truncate mr-4">
+            <span class="font-bold text-[16px] text-brandRed group-hover:text-white transition-colors duration-300">NARRATIVE LAB GRAPHICS</span>
+            <span class="text-brandRed/30 font-light text-sm select-none">/</span>
+            <span class="font-normal text-[14px] text-brandRed/80 group-hover:text-white/90 transition-colors duration-300">NARRATIVE SEOUL</span>
+          </div>
+          <div class="flex items-center gap-16 text-right flex-shrink-0 mt-2 sm:mt-0">
+            <span class="font-normal text-[12px] tracking-widest text-brandRed/80 w-[140px] text-right group-hover:text-white/80 transition-colors duration-300 hidden sm:inline">BRANDING</span>
+            <span class="font-normal text-[12px] tracking-widest text-brandRed/80 w-[60px] text-right group-hover:text-white/90 transition-colors duration-300">2023</span>
+          </div>
+        </div>
+
+        <!-- Row 17 -->
+        <div 
+          class="works-row group flex flex-col sm:flex-row sm:items-center justify-between py-[12px] cursor-pointer transition-all duration-300 border-b border-brandRed/5 hover:bg-brandRed/5 px-4 -mx-4 uppercase"
+          data-id="17"
+          data-category="VIDEO"
+          data-year="2023"
+          data-image="https://images.unsplash.com/photo-1544025313-94ddf0286df2?auto=format&fit=crop&w=400&q=80"
+        >
+          <div class="flex items-baseline gap-2.5 flex-grow truncate mr-4">
+            <span class="font-bold text-[16px] text-brandRed group-hover:text-white transition-colors duration-300">COSMECEUTICAL DIGITAL VIDEO</span>
+            <span class="text-brandRed/30 font-light text-sm select-none">/</span>
+            <span class="font-normal text-[14px] text-brandRed/80 group-hover:text-white/90 transition-colors duration-300">DERMA SPA</span>
+          </div>
+          <div class="flex items-center gap-16 text-right flex-shrink-0 mt-2 sm:mt-0">
+            <span class="font-normal text-[12px] tracking-widest text-brandRed/80 w-[140px] text-right group-hover:text-white/80 transition-colors duration-300 hidden sm:inline">VIDEO</span>
+            <span class="font-normal text-[12px] tracking-widest text-brandRed/80 w-[60px] text-right group-hover:text-white/90 transition-colors duration-300">2023</span>
+          </div>
+        </div>
+
+        <!-- Row 18 -->
+        <div 
+          class="works-row group flex flex-col sm:flex-row sm:items-center justify-between py-[12px] cursor-pointer transition-all duration-300 border-b border-brandRed/5 hover:bg-brandRed/5 px-4 -mx-4 uppercase"
+          data-id="18"
+          data-category="BRANDING"
+          data-year="2023"
+          data-image="https://images.unsplash.com/photo-1618005182384-a83a8bd57fbe?auto=format&fit=crop&w=400&q=80"
+        >
+          <div class="flex items-baseline gap-2.5 flex-grow truncate mr-4">
+            <span class="font-bold text-[16px] text-brandRed group-hover:text-white transition-colors duration-300">AURA SMART SYSTEM UI PROD</span>
+            <span class="text-brandRed/30 font-light text-sm select-none">/</span>
+            <span class="font-normal text-[14px] text-brandRed/80 group-hover:text-white/90 transition-colors duration-300">AURA INC</span>
+          </div>
+          <div class="flex items-center gap-16 text-right flex-shrink-0 mt-2 sm:mt-0">
+            <span class="font-normal text-[12px] tracking-widest text-brandRed/80 w-[140px] text-right group-hover:text-white/80 transition-colors duration-300 hidden sm:inline">BRANDING</span>
+            <span class="font-normal text-[12px] tracking-widest text-brandRed/80 w-[60px] text-right group-hover:text-white/90 transition-colors duration-300">2023</span>
+          </div>
+        </div>
+
+        <!-- Row 19 -->
+        <div 
+          class="works-row group flex flex-col sm:flex-row sm:items-center justify-between py-[12px] cursor-pointer transition-all duration-300 border-b border-brandRed/5 hover:bg-brandRed/5 px-4 -mx-4 uppercase"
+          data-id="19"
+          data-category="BANNERS & ADS"
+          data-year="2022"
+          data-image="https://images.unsplash.com/photo-1550684848-fac1c5b4e853?auto=format&fit=crop&w=400&q=80"
+        >
+          <div class="flex items-baseline gap-2.5 flex-grow truncate mr-4">
+            <span class="font-bold text-[16px] text-brandRed group-hover:text-white transition-colors duration-300">REDEFINING CHROMA DISPLAY</span>
+            <span class="text-brandRed/30 font-light text-sm select-none">/</span>
+            <span class="font-normal text-[14px] text-brandRed/80 group-hover:text-white/90 transition-colors duration-300">CHROMA BROADCAST</span>
+          </div>
+          <div class="flex items-center gap-16 text-right flex-shrink-0 mt-2 sm:mt-0">
+            <span class="font-normal text-[12px] tracking-widest text-brandRed/80 w-[140px] text-right group-hover:text-white/80 transition-colors duration-300 hidden sm:inline">BANNERS & ADS</span>
+            <span class="font-normal text-[12px] tracking-widest text-brandRed/80 w-[60px] text-right group-hover:text-white/90 transition-colors duration-300">2022</span>
+          </div>
+        </div>
+
+      </section>
+
+    </main>
+
+    <!-- SECTION 6: CTA BAR -->
+    <section class="w-full mt-[120px] border-t border-brandRed bg-[#000000] px-6 md:px-12 py-10 flex flex-col md:flex-row justify-between items-start md:items-center gap-6 select-none">
+      <div class="flex flex-col gap-1.5">
+        <span class="font-semibold text-[10px] tracking-widest text-brandRed">
+          READY TO WORK ON YOUR NEXT LOOK
+        </span>
+        <a
+          href="mailto:THDGMLDLSGH@NAVER.COM"
+          class="font-black text-lg sm:text-2xl lg:text-3xl tracking-tighter text-brandRed hover:opacity-85 transition-opacity"
+        >
+          THDGMLDLSGH@NAVER.COM
+        </a>
+      </div>
+      <div class="font-semibold text-[10px] tracking-widest text-brandRed md:text-right">
+        CONTENT DESIGNER
+      </div>
+    </section>
+
+    <!-- SECTION 7: FOOTER (RED BACKGROUND SECTION) -->
+    <footer id="footer" class="w-full bg-[#E50914] text-[#000000] px-6 md:px-12 pt-20 pb-8 flex flex-col gap-24 select-none">
+      
+      <!-- Footer Top Links Row -->
+      <div class="grid grid-cols-1 md:grid-cols-3 gap-12 text-[12px] font-bold tracking-widest">
+        <div class="flex flex-col gap-3">
+          <span class="opacity-60 text-[10px] font-mono tracking-[3px]">MENU</span>
+          <div class="flex flex-col gap-1.5">
+            <button onclick="filterCategory('ALL')" class="text-left font-black hover:opacity-75">WORKS</button>
+            <button onclick="filterCategory('VIDEO')" class="text-left font-black hover:opacity-75">VIDEO</button>
+            <button onclick="filterCategory('BANNERS & ADS')" class="text-left font-black hover:opacity-75">BANNERS</button>
+            <button onclick="filterCategory('BRANDING')" class="text-left font-black hover:opacity-75">BRANDING</button>
+          </div>
+        </div>
+        
+        <div class="flex flex-col gap-3">
+          <span class="opacity-60 text-[10px] font-mono tracking-[3px]">SOCIAL</span>
+          <div class="flex flex-col gap-1.5">
+            <a href="index.html" class="font-black hover:opacity-75">INFO/HOME</a>
+            <a href="https://instagram.com" target="_blank" rel="noopener noreferrer" class="font-black hover:opacity-75">INSTAGRAM</a>
+            <a href="https://behance.net" target="_blank" rel="noopener noreferrer" class="font-black hover:opacity-75">BEHANCE</a>
+          </div>
+        </div>
+
+        <div class="flex flex-col gap-3 md:text-right">
+          <span class="opacity-60 text-[10px] font-mono tracking-[3px]">LOCATION</span>
+          <span class="font-black">SEOUL / SOUTH KOREA</span>
+        </div>
+      </div>
+
+      <!-- Footer Monstrous Typographic Display: SONG [portrait] HEE -->
+      <div class="w-full flex items-center justify-center overflow-hidden tracking-tighter font-black text-[#000000]">
+        <div class="flex items-center justify-center leading-[0.8] text-[15vw] sm:text-[18vw] md:text-[15.5vw] lg:text-[18vw] xl:text-[23vw]">
+          <span>SONG</span>
+          
+          <!-- Embedded high-end contrast-blended portrait photo box -->
+          <div class="w-[8vw] h-[11vw] min-w-[50px] min-h-[70px] max-w-[170px] max-h-[238px] mx-2 md:mx-6 inline-block align-middle bg-black overflow-hidden relative border border-black group">
+            <img
+              src="https://images.unsplash.com/photo-1544025313-94ddf0286df2?auto=format&fit=crop&w=400&q=80"
+              alt="Songhee Lee Portrait Silhouette"
+              class="w-full h-full object-cover filter grayscale contrast-[1.8] brightness-[0.75] mix-blend-multiply opacity-100 transition-transform duration-500 group-hover:scale-105"
+            />
+          </div>
+          
+          <span>HEE</span>
+        </div>
+      </div>
+
+      <!-- Footer Bottom Metadata Credits -->
+      <div class="flex flex-col sm:flex-row justify-between items-center gap-4 text-[10px] tracking-widest font-bold border-t border-black/10 pt-6">
+        <span>COPYRIGHT © 2025 SONGHEE LEE</span>
+        <span>DESIGN & DEV @SONGHEE</span>
+      </div>
+
+    </footer>
+
+    <!-- INTERACTIVE SCRIPTS -->
+    <script>
+      // Toggle Overlay Menu
+      const menuTrigger = document.getElementById('menu-trigger');
+      const menuOverlay = document.getElementById('menu-overlay');
+      let isMenuOpen = false;
+
+      function toggleMenu() {
+        isMenuOpen = !isMenuOpen;
+        if (isMenuOpen) {
+          menuTrigger.textContent = '×';
+          menuOverlay.classList.remove('opacity-0', '-translate-y-full', 'pointer-events-none');
+          menuOverlay.classList.add('opacity-100', 'translate-y-0');
+        } else {
+          menuTrigger.textContent = '+';
+          menuOverlay.classList.add('opacity-0', '-translate-y-full', 'pointer-events-none');
+          menuOverlay.classList.remove('opacity-100', 'translate-y-0');
+        }
+      }
+
+      // Cursor-following Hover Thumbnail System
+      const preview = document.getElementById('thumbnail-preview');
+      const previewImg = document.getElementById('preview-image');
+      const previewId = document.getElementById('preview-id');
+      const previewCategory = document.getElementById('preview-category');
+      const previewYear = document.getElementById('preview-year');
+
+      // Bind mouse hover logic for static HTML preview
+      document.querySelectorAll('.works-row').forEach(row => {
+        row.addEventListener('mouseenter', () => {
+          const id = row.getAttribute('data-id');
+          const category = row.getAttribute('data-category');
+          const year = row.getAttribute('data-year');
+          const image = row.getAttribute('data-image');
+
+          previewImg.src = image;
+          previewId.textContent = '[' + id + ']';
+          previewCategory.textContent = category;
+          previewYear.textContent = '© ' + year;
+
+          // Make visible
+          preview.classList.remove('opacity-0');
+          preview.classList.add('opacity-100');
+        });
+
+        row.addEventListener('mouseleave', () => {
+          preview.classList.add('opacity-0');
+          preview.classList.remove('opacity-100');
+        });
+      });
+
+      // Continuous mouse coord mapping
+      document.addEventListener('mousemove', (e) => {
+        const offset = 20;
+        let leftPos = e.clientX + offset;
+        let topPos = e.clientY + offset;
+
+        // Ensure box doesn't go off screen
+        const previewWidth = 200;
+        const previewHeight = 130;
+        if (leftPos + previewWidth > window.innerWidth) {
+          leftPos = e.clientX - previewWidth - offset;
+        }
+        if (topPos + previewHeight > window.innerHeight) {
+          topPos = e.clientY - previewHeight - offset;
+        }
+
+        preview.style.left = leftPos + 'px';
+        preview.style.top = topPos + 'px';
+      });
+
+      // Filter category on client-side
+      function filterCategory(catName) {
+        // Scroll to filters smoothly
+        document.getElementById('filter-bar').scrollIntoView({ behavior: 'smooth' });
+
+        // Update button font weights
+        document.querySelectorAll('.filter-btn').forEach(btn => {
+          if (btn.textContent.includes(catName)) {
+            btn.classList.add('font-black', 'text-brandRed');
+          } else {
+            btn.classList.remove('font-black', 'text-brandRed');
+          }
+        });
+
+        // Filter Rows
+        document.querySelectorAll('.works-row').forEach(row => {
+          const rowCat = row.getAttribute('data-category');
+          if (catName === 'ALL' || rowCat === catName) {
+            row.style.display = 'flex';
+          } else {
+            row.style.display = 'none';
+          }
+        });
+
+        // Close menu if it was opened
+        if (isMenuOpen) {
+          toggleMenu();
+        }
+      }
+
+      // Check URL parameters on mount
+      window.addEventListener('DOMContentLoaded', () => {
+        const params = new URLSearchParams(window.location.search);
+        const categoryParam = params.get('category');
+        if (categoryParam) {
+          if (categoryParam === 'BANNERS') {
+            filterCategory('BANNERS & ADS');
+          } else {
+            filterCategory(categoryParam);
+          }
+        }
+      });
+    </script>
+  </body>
+</html>

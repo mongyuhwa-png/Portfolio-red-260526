@@ -1,0 +1,374 @@
+<!doctype html>
+<html lang="ko">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>SONGHEE LEE — INFO</title>
+    <!-- Google Fonts Public Sans -->
+    <style>
+      @import url('https://fonts.googleapis.com/css2?family=Public+Sans:wght@100;400;700;900&display=swap');
+      
+      body {
+        font-family: 'Public Sans', sans-serif;
+        background-color: #000000;
+        color: #E50914;
+        text-transform: uppercase;
+        user-select: none;
+      }
+      
+      /* Webkit scrollbar personalization */
+      ::-webkit-scrollbar {
+        width: 6px;
+      }
+      ::-webkit-scrollbar-track {
+        background: #000000;
+      }
+      ::-webkit-scrollbar-thumb {
+        background: #E50914;
+        border-radius: 3px;
+      }
+
+      /* CSS Halftone Dot Pattern for profile photo */
+      .halftone-overlay {
+        mix-blend-mode: multiply;
+        background-image: radial-gradient(circle, #000000 25%, transparent 26%);
+        background-size: 4px 4px;
+        opacity: 0.35;
+      }
+    </style>
+    <!-- Tailwind CSS Play CDN -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script>
+      tailwind.config = {
+        theme: {
+          extend: {
+            colors: {
+              brandRed: '#E50914',
+            },
+            letterSpacing: {
+              'tight-extreme': '-0.04em',
+            }
+          }
+        }
+      }
+    </script>
+  </head>
+  <body class="relative min-h-screen bg-[#000000] text-[#E50914] antialiased">
+    
+    <!-- SECTION 1: FIXED NAVIGATION BAR -->
+    <nav class="fixed top-0 left-0 w-full h-[60px] z-50 flex items-center justify-between px-6 md:px-12 bg-black/80 backdrop-blur-sm border-b border-brandRed/10">
+      <a href="index.html" class="font-extrabold text-[14px] tracking-widest text-[#E50914] hover:opacity-80 transition-opacity">
+        SONGHEE
+      </a>
+      
+      <button 
+        id="menu-trigger"
+        onclick="toggleMenu()"
+        class="text-[24px] font-light text-[#E50914] cursor-pointer focus:outline-none select-none transition-transform duration-300 hover:scale-110"
+        aria-label="Toggle Navigation"
+      >
+        +
+      </button>
+    </nav>
+
+    <!-- SIDEBAR DRAWER MENU BACKDROP -->
+    <div 
+      id="drawer-backdrop"
+      onclick="toggleMenu()"
+      class="fixed inset-0 bg-black/60 z-40 transition-opacity duration-500 ease-in-out opacity-0 pointer-events-none"
+    ></div>
+
+    <!-- SIDEBAR DRAWER MENU BODY -->
+    <div 
+      id="side-drawer"
+      class="fixed top-0 right-0 h-full w-[280px] sm:w-[360px] bg-[#E50914] text-[#000000] z-50 p-6 sm:p-8 flex flex-col justify-between transition-transform duration-500 transform translate-x-full ease-out"
+    >
+      <!-- Drawer Close Button -->
+      <button
+        onclick="toggleMenu()"
+        class="absolute top-5 right-6 text-[32px] sm:text-[38px] font-thin text-black hover:opacity-75 focus:outline-none select-none transition-transform duration-300 hover:rotate-90 cursor-pointer"
+        aria-label="Close Navigation"
+      >
+        ×
+      </button>
+
+      <!-- Navigation Categories container -->
+      <div class="flex flex-col gap-8 mt-16 text-left select-none">
+        <!-- HOME -->
+        <a 
+          href="index.html"
+          class="text-[34px] sm:text-[38px] font-black tracking-tight text-black hover:italic text-left leading-none transition-all cursor-pointer"
+        >
+          HOME
+        </a>
+
+        <!-- WORKS nested structure -->
+        <div class="flex flex-col">
+          <a 
+            href="index.html"
+            class="text-[34px] sm:text-[38px] font-black tracking-tight text-black hover:italic text-left leading-none transition-all cursor-pointer"
+          >
+            WORKS
+          </a>
+          <div class="flex flex-col gap-3 pl-5 mt-4 border-l border-black/25">
+            <a 
+              href="index.html"
+              class="text-[12px] sm:text-[13px] font-bold text-black/90 hover:text-black tracking-[3px] text-left uppercase cursor-pointer"
+            >
+              VIDEO
+            </a>
+            <a 
+              href="index.html"
+              class="text-[12px] sm:text-[13px] font-bold text-black/90 hover:text-black tracking-[3px] text-left uppercase cursor-pointer"
+            >
+              BANNERS
+            </a>
+            <a 
+              href="index.html"
+              class="text-[12px] sm:text-[13px] font-bold text-black/90 hover:text-black tracking-[3px] text-left uppercase cursor-pointer"
+            >
+              BRANDING
+            </a>
+          </div>
+        </div>
+
+        <!-- INFO -->
+        <a 
+          href="about.html"
+          class="text-[34px] sm:text-[38px] font-black tracking-tight text-black hover:italic text-left leading-none transition-all cursor-pointer"
+        >
+          INFO
+        </a>
+      </div>
+
+      <!-- Drawer Bottom Social Links -->
+      <div class="flex flex-col gap-2.5 text-[10px] font-bold tracking-[3px] text-black pt-6 border-t border-black/15 select-none">
+        <a href="https://behance.net" target="_blank" rel="noopener noreferrer" class="hover:underline text-left uppercase">
+          BEHANCE
+        </a>
+        <a href="https://instagram.com" target="_blank" rel="noopener noreferrer" class="hover:underline text-left uppercase">
+          INSTAGRAM
+        </a>
+      </div>
+    </div>
+
+    <!-- MAIN EXPORT CONTENT -->
+    <main class="w-full pt-[140px] px-6 md:px-12 max-w-7xl mx-auto flex flex-col">
+      
+      <!-- Split columns grid -->
+      <div class="grid grid-cols-1 lg:grid-cols-12 gap-12 lg:gap-24 w-full">
+        
+        <!-- Left Column (35% on large screen) -->
+        <div class="lg:col-span-4 flex flex-col">
+          <div class="relative w-full aspect-square bg-[#E50914] overflow-hidden border border-brandRed">
+            <img 
+              src="https://images.unsplash.com/photo-1544025313-94ddf0286df2?auto=format&fit=crop&w=600&q=80" 
+              alt="Zuzanna portrait" 
+              class="w-full h-full object-cover filter grayscale contrast-[1.8] brightness-[0.75] mix-blend-multiply opacity-100 object-center transition-transform duration-500 hover:scale-105"
+            />
+            
+            {/* CSS Halftone/Stripe/Scanline overlay resembling screenshot vertical scanline pattern */}
+            <div 
+              class="absolute inset-0 mix-blend-multiply pointer-events-none opacity-45" 
+              style="background-image: linear-gradient(90deg, #000 50%, transparent 50%), linear-gradient(0deg, #000 50%, transparent 50%); background-size: 2px 4px;"
+            ></div>
+
+            <div class="absolute inset-x-0 top-0 h-4 flex justify-between pointer-events-none opacity-40">
+              <span class="border-t border-l border-black w-2 h-2 m-2"></span>
+              <span class="border-t border-r border-black w-2 h-2 m-2"></span>
+            </div>
+            <div class="absolute inset-x-0 bottom-0 h-4 flex justify-between pointer-events-none opacity-40">
+              <span class="border-b border-l border-black w-2 h-2 m-2"></span>
+              <span class="border-b border-r border-black w-2 h-2 m-2"></span>
+            </div>
+          </div>
+        </div>
+
+        <!-- Right Column (65% on large screen) -->
+        <div class="lg:col-span-8 flex flex-col justify-between">
+          
+          <!-- Upper area: Brand Philosophy -->
+          <div class="flex flex-col items-start">
+            <span class="text-[11px] font-mono tracking-[4px] text-brandRed block mb-4 opacity-80">
+              INFO
+            </span>
+            <h2 class="font-black text-[24px] sm:text-[28px] md:text-[34px] lg:text-[38px] leading-[1.1] tracking-tight text-brandRed uppercase max-w-[680px]">
+              MY PROCESS IS GROUNDED<br>
+              IN CONVERSATION.<br>
+              UNDERSTANDING THE VISUAL<br>
+              INTENTION, RHYTHM AND<br>
+              EMOTIONAL TONE OF A PROJECT<br>
+              ALWAYS COMES FIRST.
+            </h2>
+            
+            <div class="mt-8 mb-12">
+              <a href="index.html" class="inline-block bg-brandRed text-black font-mono font-bold text-[11px] tracking-[2px] px-6 py-3 transition-all duration-300 hover:bg-white hover:text-black uppercase">
+                CHECK CLIENTS
+              </a>
+            </div>
+          </div>
+
+          <!-- Middle area: Sub Philosophy -->
+          <div class="border-t border-brandRed/10 pt-8 mb-8">
+            <p class="font-normal text-[17px] sm:text-[20px] leading-[1.4] text-brandRed/95 uppercase max-w-[640px]">
+              IN THE GRADING ROOM, I FOCUS<br>
+              ON TEXTURE AND DENSITY,<br>
+              ALWAYS LETTING THE IMAGE<br>
+              BREATHE AND SPEAK FOR ITSELF.
+            </p>
+          </div>
+
+          <!-- Bottom area: Standard descriptions -->
+          <div class="flex flex-col gap-8 max-w-[680px]">
+            <!-- Paragraph 1 -->
+            <p class="text-[13px] sm:text-[14px] font-normal leading-[1.65] text-brandRed normal-case">
+              Warsaw. My background in graphic design and visual arts — completed in Barcelona — together with years spent exploring street photography, shaped my sensibility for color, rhythm, and composition. Photography taught me to find balance in chaos and emotion in light — the invisible craft behind each frame.
+            </p>
+
+            <!-- Section B -->
+            <div class="flex flex-col gap-1.5">
+              <span class="text-[10px] font-mono tracking-[3px] opacity-60">NEW DIRECTIONS</span>
+              <p class="text-[13px] sm:text-[14px] font-normal leading-[1.65] text-brandRed normal-case">
+                Recently, I've expanded my path into new business management — a natural extension of my curiosity and love for human connection. Whether in the grading suite or at a film festival, I find inspiration in conversation, collaboration, and the constant exchange of ideas that fuel my creativity and keep my process evolving.
+              </p>
+            </div>
+
+            <!-- Section C -->
+            <div class="flex flex-col gap-1.5 border-b border-brandRed/10 pb-12">
+              <span class="text-[10px] font-mono tracking-[3px] opacity-60">PATH TO COLOR</span>
+              <p class="text-[13px] sm:text-[14px] font-normal leading-[1.65] text-brandRed normal-case">
+                Before focusing on color, I worked in 2D motion graphics, where precision and patience became second nature. As a colorist, I'm drawn to the dialogue between image and emotion, collaborating closely with directors and cinematographers to translate vision into mood and intention into color.
+              </p>
+            </div>
+          </div>
+
+          <!-- Contact details -->
+          <div class="flex flex-col gap-4 mt-8 select-none">
+            <span class="text-[10px] font-mono tracking-[3px] opacity-60">CONTACT</span>
+            <div class="flex flex-col gap-2 text-[26px] sm:text-[36px] md:text-[44px] font-black tracking-tighter leading-none text-brandRed">
+              <div class="uppercase">ZUZANNAWOZNICZKA</div>
+              <a href="mailto:GRADE@GMAIL.COM" class="hover:text-white transition-colors duration-300">
+                GRADE@GMAIL.COM
+              </a>
+              <a href="tel:+48661676540" class="hover:text-white transition-colors duration-300">
+                +48 661 676 540
+              </a>
+            </div>
+          </div>
+
+        </div>
+      </div>
+
+      <!-- Bracketed Social Links footer line -->
+      <div class="flex justify-between items-center w-full mt-24 border-t border-brandRed/10 pt-6 select-none pb-6 text-[11px] font-bold tracking-[2px]">
+        <a href="https://instagram.com" target="_blank" rel="noopener noreferrer" class="border border-brandRed px-5 py-1.5 hover:bg-brandRed hover:text-black transition-all">
+          INSTAGRAM
+        </a>
+        <a href="https://vimeo.com" target="_blank" rel="noopener noreferrer" class="border border-brandRed px-5 py-1.5 hover:bg-brandRed hover:text-black transition-all">
+          VIMEO
+        </a>
+      </div>
+
+    </main>
+
+    <!-- SECTION 6: CTA BAR -->
+    <section class="w-full mt-[120px] border-t border-brandRed bg-[#000000] px-6 md:px-12 py-10 flex flex-col md:flex-row justify-between items-start md:items-center gap-6 select-none">
+      <div class="flex flex-col gap-1.5">
+        <span class="font-semibold text-[10px] tracking-widest text-brandRed">
+          READY TO WORK ON YOUR NEXT LOOK
+        </span>
+        <a
+          href="mailto:ZUZANNAWOZNICZKAGRADE@GMAIL.COM"
+          class="font-black text-lg sm:text-2xl lg:text-3xl tracking-tighter text-brandRed hover:opacity-85 transition-opacity uppercase"
+        >
+          ZUZANNAWOZNICZKAGRADE@GMAIL.COM
+        </a>
+      </div>
+      <div class="font-semibold text-[10px] tracking-widest text-brandRed md:text-right uppercase">
+        PSFC FREELANCE COLORIST
+      </div>
+    </section>
+
+    <!-- SECTION 7: FOOTER -->
+    <footer id="footer" class="w-full bg-[#E50914] text-[#000000] px-6 md:px-12 pt-20 pb-8 flex flex-col gap-24 select-none">
+      
+      <!-- Footer Top Links Row -->
+      <div class="grid grid-cols-1 md:grid-cols-3 gap-12 text-[12px] font-bold tracking-widest">
+        <div class="flex flex-col gap-3">
+          <span class="opacity-60 text-[10px] font-mono tracking-[3px]">MENU</span>
+          <div class="flex flex-col gap-1.5">
+            <a href="index.html" class="text-left font-black hover:opacity-75">WORKS</a>
+            <a href="index.html" class="text-left font-black hover:opacity-75">COMMERCIAL</a>
+            <a href="index.html" class="text-left font-black hover:opacity-75">MUSIC VIDEO</a>
+            <a href="index.html" class="text-left font-black hover:opacity-75">NARRATIVE</a>
+          </div>
+        </div>
+        
+        <div class="flex flex-col gap-3">
+          <span class="opacity-60 text-[10px] font-mono tracking-[3px]">SOCIAL</span>
+          <div class="flex flex-col gap-1.5">
+            <a href="about.html" class="font-black hover:opacity-75">INFO</a>
+            <a href="https://instagram.com" target="_blank" rel="noopener noreferrer" class="font-black hover:opacity-75">INSTAGRAM</a>
+            <a href="https://vimeo.com" target="_blank" rel="noopener noreferrer" class="font-black hover:opacity-75">VIMEO</a>
+          </div>
+        </div>
+
+        <div class="flex flex-col gap-3 md:text-right">
+          <span class="opacity-60 text-[10px] font-mono tracking-[3px]">LOCATION</span>
+          <span class="font-black uppercase">WORLDWIDE / BARCELONA / WARSAW</span>
+        </div>
+      </div>
+
+      <!-- Footer Monstrous Typographic Display: ZUZA [portrait] W -->
+      <div class="w-full flex items-center justify-center overflow-hidden tracking-tighter font-black text-[#000000]">
+        <div class="flex items-center justify-center leading-[0.8] text-[15vw] sm:text-[18vw] md:text-[15.5vw] lg:text-[18vw] xl:text-[23vw]">
+          <span>ZUZA</span>
+          
+          <!-- Embedded high-end contrast-blended portrait photo box tilted to mimic a backslash \ -->
+          <div class="w-[8vw] h-[11vw] min-w-[50px] min-h-[70px] max-w-[170px] max-h-[238px] mx-2 md:mx-6 inline-block align-middle bg-black overflow-hidden relative border border-black group rotate-[8deg]">
+            <img
+              src="https://images.unsplash.com/photo-1544025313-94ddf0286df2?auto=format&fit=crop&w=400&q=80"
+              alt="Zuzanna Portrait Silhouette"
+              class="w-full h-full object-cover filter grayscale contrast-[1.8] brightness-[0.75] mix-blend-multiply opacity-100 transition-transform duration-500 group-hover:scale-105"
+            />
+          </div>
+          
+          <span>W</span>
+        </div>
+      </div>
+
+      <!-- Footer Bottom Metadata Credits -->
+      <div class="flex flex-col sm:flex-row justify-between items-center gap-4 text-[10px] tracking-widest font-bold border-t border-black/10 pt-6">
+        <span>COPYRIGHT © 2025 ZUZA WOŹNICZKA</span>
+        <span>DESIGN&DEV @TOTALNIE.JULIANNA</span>
+      </div>
+
+    </footer>
+
+    <!-- INTERACTIVE SCRIPTS -->
+    <script>
+      // Toggle Overlay Menu
+      const menuTrigger = document.getElementById('menu-trigger');
+      const drawerBackdrop = document.getElementById('drawer-backdrop');
+      const sideDrawer = document.getElementById('side-drawer');
+      let isMenuOpen = false;
+
+      function toggleMenu() {
+        isMenuOpen = !isMenuOpen;
+        if (isMenuOpen) {
+          menuTrigger.textContent = '×';
+          drawerBackdrop.classList.remove('opacity-0', 'pointer-events-none');
+          drawerBackdrop.classList.add('opacity-100', 'pointer-events-auto');
+          sideDrawer.classList.remove('translate-x-full');
+          sideDrawer.classList.add('translate-x-0');
+        } else {
+          menuTrigger.textContent = '+';
+          drawerBackdrop.classList.add('opacity-0', 'pointer-events-none');
+          drawerBackdrop.classList.remove('opacity-100', 'pointer-events-auto');
+          sideDrawer.classList.remove('translate-x-0');
+          sideDrawer.classList.add('translate-x-full');
+        }
+      }
+    </script>
+  </body>
+</html>

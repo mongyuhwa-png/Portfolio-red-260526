@@ -1,0 +1,53 @@
+@import url('https://fonts.googleapis.com/css2?family=Public+Sans:wght@100;400;700;900&display=swap');
+@import "tailwindcss";
+
+@theme {
+  --color-brand-bg: #000000;
+  --color-brand-red: #E50914;
+  --font-sans: "Public Sans", ui-sans-serif, system-ui, sans-serif;
+}
+
+/* Base resets & styles */
+html {
+  scroll-behavior: smooth;
+  background-color: #000000;
+}
+
+body {
+  background-color: #000000;
+  color: #E50914;
+  font-family: var(--font-sans);
+  overflow-x: hidden;
+  -webkit-font-smoothing: antialiased;
+  text-transform: uppercase;
+}
+
+/* Custom interactive selections */
+::selection {
+  background-color: #E50914;
+  color: #000000;
+}
+
+/* Scrollbar styling */
+::-webkit-scrollbar {
+  width: 8px;
+}
+::-webkit-scrollbar-track {
+  background: #000000;
+}
+::-webkit-scrollbar-thumb {
+  background: #E50914;
+  border-radius: 4px;
+}
+::-webkit-scrollbar-thumb:hover {
+  background: #B3070F;
+}
+
+/* Utilities for extreme formatting */
+.tracking-tight-extreme {
+  letter-spacing: -3px;
+}
+
+.tracking-tight-heading {
+  letter-spacing: -2px;
+}
