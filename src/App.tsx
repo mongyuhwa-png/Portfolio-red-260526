@@ -293,13 +293,13 @@ export default function App() {
   const activeHoverProject = worksData.find((w) => w.id === activeThumbnailId);
 
   return (
-    <div className="relative min-h-screen bg-[#000000] text-[#E50914] font-sans antialiased uppercase select-none">
+    <div className="relative min-h-screen bg-[#F5F5F7] text-[#111111] font-sans antialiased uppercase select-none">
       
       {/* SECTION 1: FIXED NAVIGATION BAR */}
-      <nav id="navbar" className="fixed top-0 left-0 w-full h-[60px] z-50 flex items-center justify-between px-6 md:px-12 bg-black/80 backdrop-blur-sm border-b border-[#E50914]/10">
+      <nav id="navbar" className="fixed top-0 left-0 w-full h-[60px] z-50 flex items-center justify-between px-6 md:px-12 bg-[#F5F5F7]/80 backdrop-blur-sm border-b border-[#111111]/10">
         <span 
           onClick={handleLogoClick}
-          className="font-extrabold text-[14px] tracking-widest text-[#E50914] cursor-pointer"
+          className="font-extrabold text-[14px] tracking-widest text-[#FF3E6C] cursor-pointer"
         >
           SONGHEE
         </span>
@@ -308,7 +308,7 @@ export default function App() {
         <button 
           id="menu-trigger"
           onClick={() => setIsMenuOpen(!isMenuOpen)}
-          className="text-[24px] font-light text-[#E50914] cursor-pointer focus:outline-none select-none transition-transform duration-300 hover:scale-110"
+          className="text-[24px] font-light text-[#111111] cursor-pointer focus:outline-none select-none transition-transform duration-300 hover:scale-110"
           aria-label="Toggle Navigation"
         >
           {isMenuOpen ? "×" : "+"}
@@ -326,14 +326,14 @@ export default function App() {
       {/* SIDEBAR DRAWER MENU BODY */}
       <div 
         id="side-drawer"
-        className={`fixed top-0 right-0 h-full w-[280px] sm:w-[360px] bg-[#E50914] text-[#000000] z-50 p-6 sm:p-8 flex flex-col justify-between transition-transform duration-500 [transition-timing-function:cubic-bezier(0.16,1,0.3,1)] ${
+        className={`fixed top-0 right-0 h-full w-[280px] sm:w-[360px] bg-[#FF3E6C] text-white z-50 p-6 sm:p-8 flex flex-col justify-between transition-transform duration-500 [transition-timing-function:cubic-bezier(0.16,1,0.3,1)] ${
           isMenuOpen ? "translate-x-0" : "translate-x-full"
         }`}
       >
         {/* Drawer Close Button */}
         <button
           onClick={() => setIsMenuOpen(false)}
-          className="absolute top-5 right-6 text-[32px] sm:text-[38px] font-thin text-black hover:opacity-75 focus:outline-none select-none transition-transform duration-300 hover:rotate-90 cursor-pointer"
+          className="absolute top-5 right-6 text-[32px] sm:text-[38px] font-thin text-white hover:opacity-75 focus:outline-none select-none transition-transform duration-300 hover:rotate-90 cursor-pointer"
           aria-label="Close Navigation"
         >
           ×
@@ -344,7 +344,7 @@ export default function App() {
           {/* HOME */}
           <button 
             onClick={() => { setView("home"); setIsMenuOpen(false); window.scrollTo({ top: 0, behavior: "smooth" }); }}
-            className="text-[34px] sm:text-[38px] font-black tracking-tight text-black hover:italic text-left leading-none transition-all cursor-pointer"
+            className="text-[34px] sm:text-[38px] font-black tracking-tight text-white hover:italic text-left leading-none transition-all cursor-pointer"
           >
             HOME
           </button>
@@ -353,26 +353,26 @@ export default function App() {
           <div className="flex flex-col">
             <button 
               onClick={() => { setView("works"); setSelectedCategory("ALL"); setIsMenuOpen(false); window.scrollTo({ top: 0, behavior: "smooth" }); }}
-              className="text-[34px] sm:text-[38px] font-black tracking-tight text-black hover:italic text-left leading-none transition-all cursor-pointer"
+              className="text-[34px] sm:text-[38px] font-black tracking-tight text-white hover:italic text-left leading-none transition-all cursor-pointer"
             >
               WORKS
             </button>
-            <div className="flex flex-col gap-3 pl-5 mt-4 border-l border-black/25">
+            <div className="flex flex-col gap-3 pl-5 mt-4 border-l border-white/25">
               <button 
                 onClick={() => { setView("works"); setSelectedCategory("VIDEO"); setIsMenuOpen(false); window.scrollTo({ top: 0, behavior: "smooth" }); }}
-                className="text-[12px] sm:text-[13px] font-bold text-black/90 hover:text-black tracking-[3px] text-left uppercase cursor-pointer"
+                className="text-[12px] sm:text-[13px] font-bold text-white/90 hover:text-white tracking-[3px] text-left uppercase cursor-pointer"
               >
                 VIDEO
               </button>
               <button 
                 onClick={() => { setView("works"); setSelectedCategory("BANNERS"); setIsMenuOpen(false); window.scrollTo({ top: 0, behavior: "smooth" }); }}
-                className="text-[12px] sm:text-[13px] font-bold text-black/90 hover:text-black tracking-[3px] text-left uppercase cursor-pointer"
+                className="text-[12px] sm:text-[13px] font-bold text-white/90 hover:text-white tracking-[3px] text-left uppercase cursor-pointer"
               >
                 BANNERS
               </button>
               <button 
                 onClick={() => { setView("works"); setSelectedCategory("ADS"); setIsMenuOpen(false); window.scrollTo({ top: 0, behavior: "smooth" }); }}
-                className="text-[12px] sm:text-[13px] font-bold text-black/90 hover:text-black tracking-[3px] text-left uppercase cursor-pointer"
+                className="text-[12px] sm:text-[13px] font-bold text-white/90 hover:text-white tracking-[3px] text-left uppercase cursor-pointer"
               >
                 ADS
               </button>
@@ -382,14 +382,14 @@ export default function App() {
           {/* INFO */}
           <button 
             onClick={() => { setView("about"); setIsMenuOpen(false); window.scrollTo({ top: 0, behavior: "smooth" }); }}
-            className="text-[34px] sm:text-[38px] font-black tracking-tight text-black hover:italic text-left leading-none transition-all cursor-pointer"
+            className="text-[34px] sm:text-[38px] font-black tracking-tight text-white hover:italic text-left leading-none transition-all cursor-pointer"
           >
             INFO
           </button>
         </div>
 
         {/* Drawer Bottom Social Links */}
-        <div className="flex flex-col gap-2.5 text-[10px] font-bold tracking-[3px] text-black pt-6 border-t border-black/15 select-none">
+        <div className="flex flex-col gap-2.5 text-[10px] font-bold tracking-[3px] text-white pt-6 border-t border-white/15 select-none">
           <a href="https://behance.net" target="_blank" rel="noopener noreferrer" className="hover:underline text-left uppercase">
             BEHANCE
           </a>
@@ -402,7 +402,7 @@ export default function App() {
       {/* MOUSE-FOLLOWING FLOATING THUMBNAIL PREVIEW (WORKS page only) */}
       {view === "works" && activeThumbnailId && activeHoverProject && (
         <div
-          className="fixed pointer-events-none z-50 w-[200px] h-[130px] bg-[#141414] border border-[#E50914] overflow-hidden flex flex-col justify-between p-3 shadow-2xl transition-transform duration-75"
+          className="fixed pointer-events-none z-50 w-[200px] h-[130px] bg-white border border-[#FF3E6C] overflow-hidden flex flex-col justify-between p-3 shadow-2xl transition-transform duration-75"
           style={{
             left: `${mousePos.x + 20}px`,
             top: `${mousePos.y + 20}px`,
@@ -417,37 +417,37 @@ export default function App() {
               referrerPolicy="no-referrer"
               className="w-full h-full object-cover filter grayscale contrast-[1.8] brightness-[0.55] opacity-90 transition-opacity duration-300"
             />
-            {/* Dark gradient mapping to guarantee #E50914 color readouts */}
+            {/* Dark gradient mapping to guarantee color readouts */}
             <div className="absolute inset-0 bg-gradient-to-t from-black/80 via-transparent to-black/60 pointer-events-none" />
           </div>
 
           <div className="absolute inset-x-0 top-0 h-2 flex justify-between pointer-events-none opacity-40 z-10">
-            <span className="border-t border-l border-[#E50914] w-1.5 h-1.5" />
-            <span className="border-t border-r border-[#E50914] w-1.5 h-1.5" />
+            <span className="border-t border-l border-[#FF3E6C] w-1.5 h-1.5" />
+            <span className="border-t border-r border-[#FF3E6C] w-1.5 h-1.5" />
           </div>
 
           {/* Top text inside thumbnail box */}
-          <div className="flex justify-between items-start font-mono text-[8px] tracking-widest text-[#E50914] font-bold z-10">
+          <div className="flex justify-between items-start font-mono text-[8px] tracking-widest text-[#FF3E6C] font-bold z-10">
             <span>[{activeHoverProject.id}]</span>
             <span>{activeHoverProject.category}</span>
           </div>
 
           {/* Center visual inside thumbnail box */}
           <div className="flex flex-col items-center justify-center text-center flex-grow z-10">
-            <div className="w-6 h-6 border border-[#E50914]/40 rounded-full flex items-center justify-center animate-spin-slow mb-0.5">
-              <span className="text-[5px] font-mono">+</span>
+            <div className="w-6 h-6 border border-[#FF3E6C]/40 rounded-full flex items-center justify-center animate-spin-slow mb-0.5">
+              <span className="text-[5px] font-mono text-[#FF3E6C]">+</span>
             </div>
           </div>
 
           {/* Bottom metadata inside thumbnail box */}
-          <div className="flex justify-between items-end text-[7px] font-mono tracking-widest text-[#E50914]/80 z-10">
+          <div className="flex justify-between items-end text-[7px] font-mono tracking-widest text-[#FF3E6C]/80 z-10">
             <span>PREVIEW</span>
             <span>© {activeHoverProject.year}</span>
           </div>
 
           <div className="absolute inset-x-0 bottom-0 h-2 flex justify-between pointer-events-none opacity-40 z-10">
-            <span className="border-b border-l border-[#E50914] w-1.5 h-1.5" />
-            <span className="border-b border-r border-[#E50914] w-1.5 h-1.5" />
+            <span className="border-b border-l border-[#FF3E6C] w-1.5 h-1.5" />
+            <span className="border-b border-r border-[#FF3E6C] w-1.5 h-1.5" />
           </div>
         </div>
       )}
@@ -459,13 +459,13 @@ export default function App() {
           
           {/* SECTION 2: HERO AREA */}
           <section id="hero" className="w-full flex flex-col items-center justify-center text-center select-none">
-            <span className="font-semibold text-[11px] tracking-[3px] text-[#E50914] block mb-6">
+            <span className="font-semibold text-[11px] tracking-[3px] text-[#FF3E6C] block mb-6">
               WHERE CONTENT BECOMES A LANGUAGE
             </span>
-            <h1 className="font-black text-[12vw] sm:text-[10vw] md:text-[8.5rem] lg:text-[11vw] leading-[0.9] tracking-tight-extreme text-[#E50914]">
+            <h1 className="font-black text-[12vw] sm:text-[10vw] md:text-[8.5rem] lg:text-[11vw] leading-[0.9] tracking-tight-extreme text-[#111111]">
               TURNING IDEAS
             </h1>
-            <h1 className="font-black text-[12vw] sm:text-[10vw] md:text-[8.5rem] lg:text-[11vw] leading-[0.9] tracking-tight-extreme text-[#E50914] italic">
+            <h1 className="font-black text-[12vw] sm:text-[10vw] md:text-[8.5rem] lg:text-[11vw] leading-[0.9] tracking-tight-extreme text-[#111111] italic">
               INTO VISUALS
             </h1>
           </section>
@@ -473,7 +473,7 @@ export default function App() {
           {/* SECTION 3: WORK SELECTION GRID */}
           <section id="work" className="w-full">
             {/* Header Row */}
-            <div className="flex justify-between items-center border-b border-[#E50914]/20 pb-4 mb-10 text-[11px] font-normal tracking-widest text-[#E50914]">
+            <div className="flex justify-between items-center border-b border-[#111111]/10 pb-4 mb-10 text-[11px] font-normal tracking-widest text-[#111111]/70">
               <span>SELECTION</span>
               <span>8</span>
             </div>
@@ -487,40 +487,40 @@ export default function App() {
                   className={`group flex flex-col ${project.translateY} transition-all duration-500 cursor-pointer`}
                 >
                   {/* Image Placeholder Frame - Dark Gray Box with Red Border */}
-                  <div className={`relative ${project.aspect} w-full bg-[#141414] border border-[#E50914] overflow-hidden transition-all duration-500 ease-out hover:border-[#E50914]/80 hover:brightness-125 hover:scale-[1.01] flex flex-col justify-between p-4 sm:p-6`}>
+                  <div className={`relative ${project.aspect} w-full bg-white border border-[#111111]/10 overflow-hidden transition-all duration-500 ease-out hover:border-[#FF3E6C] hover:shadow-lg hover:scale-[1.01] flex flex-col justify-between p-4 sm:p-6`}>
                     
                     {/* Subtle Blueprint Layout Reticles */}
                     <div className="absolute inset-x-0 top-0 h-4 flex justify-between pointer-events-none opacity-30">
-                      <span className="border-t border-l border-[#E50914] w-2 h-2" />
-                      <span className="border-t border-r border-[#E50914] w-2 h-2" />
+                      <span className="border-t border-l border-[#FF3E6C] w-2 h-2" />
+                      <span className="border-t border-r border-[#FF3E6C] w-2 h-2" />
                     </div>
                     <div className="absolute inset-x-0 bottom-0 h-4 flex justify-between pointer-events-none opacity-30">
-                      <span className="border-b border-l border-[#E50914] w-2 h-2" />
-                      <span className="border-b border-r border-[#E50914] w-2 h-2" />
+                      <span className="border-b border-l border-[#FF3E6C] w-2 h-2" />
+                      <span className="border-b border-r border-[#FF3E6C] w-2 h-2" />
                     </div>
                     
                     {/* Diagnostic lines inside image frame */}
                     <div className="absolute inset-0 flex items-center justify-center pointer-events-none opacity-[0.03]">
-                      <div className="w-full h-[1px] bg-[#E50914]" />
-                      <div className="h-full w-[1px] bg-[#E50914] absolute" />
+                      <div className="w-full h-[1px] bg-[#FF3E6C]" />
+                      <div className="h-full w-[1px] bg-[#FF3E6C] absolute" />
                     </div>
 
                     {/* Card Header information */}
-                    <div className="flex justify-between items-start font-mono text-[10px] tracking-widest text-[#E50914]/80 z-10">
+                    <div className="flex justify-between items-start font-mono text-[10px] tracking-widest text-[#111111]/60 z-10">
                       <span>[{project.id}]</span>
                       <span>{project.category}</span>
                     </div>
 
                     {/* Card Center Geometric Aesthetic Icon */}
                     <div className="flex flex-col items-center justify-center gap-1.5 opacity-10 group-hover:opacity-35 transition-opacity duration-500">
-                      <div className="w-10 h-10 border border-[#E50914] rounded-full flex items-center justify-center animate-spin-slow">
+                      <div className="w-10 h-10 border border-[#FF3E6C] text-[#FF3E6C] rounded-full flex items-center justify-center animate-spin-slow">
                         <span className="text-[8px] font-mono">+</span>
                       </div>
-                      <span className="font-mono text-[8px] tracking-[4px]">CROP GUIDE</span>
+                      <span className="font-mono text-[8px] tracking-[4px] text-[#111111]">CROP GUIDE</span>
                     </div>
 
                     {/* Card Footer information */}
-                    <div className="flex justify-between items-end text-[10px] tracking-widest text-[#E50914]/80 z-10 pt-8 border-t border-[#E50914]/5">
+                    <div className="flex justify-between items-end text-[10px] tracking-widest text-[#111111]/60 z-10 pt-8 border-t border-[#111111]/5">
                       <span>35MM / 24FPS</span>
                       <span>© {project.year}</span>
                     </div>
@@ -529,7 +529,7 @@ export default function App() {
 
                   {/* Typography info below placeholder */}
                   <div className="mt-4 flex justify-between items-baseline text-[11px] tracking-widest">
-                    <h3 className="font-black text-base tracking-tight-heading text-[#E50914]">
+                    <h3 className="font-black text-base tracking-tight-heading text-[#111111]">
                       {project.title}
                     </h3>
                     <span className="opacity-70 text-[10px]">{project.category}</span>
@@ -547,22 +547,22 @@ export default function App() {
                 setSelectedCategory("ALL");
                 window.scrollTo({ top: 0, behavior: "smooth" });
               }}
-              className="font-bold text-xs tracking-widest text-[#E50914] underline underline-offset-4 decoration-2 hover:opacity-80 transition-opacity cursor-pointer"
+              className="font-bold text-xs tracking-widest text-[#FF3E6C] underline underline-offset-4 decoration-2 hover:opacity-80 transition-opacity cursor-pointer"
             >
               SEE ALL WORKS
             </button>
           </section>
 
           {/* SECTION 5: TAGLINE SECTION */}
-          <section id="tagline" className="w-full py-24 border-t border-b border-[#E50914]/20 select-none">
+          <section id="tagline" className="w-full py-24 border-t border-b border-[#FF3E6C]/20 select-none">
             <div className="max-w-[1200px] mx-auto flex flex-col items-center gap-4 text-center">
-              <p className="font-bold text-2xl sm:text-3xl md:text-4xl lg:text-[2.6rem] leading-[1.3] text-[#E50914] tracking-tight-heading">
+              <p className="font-bold text-2xl sm:text-3xl md:text-4xl lg:text-[2.6rem] leading-[1.3] text-[#111111] tracking-tight-heading">
                 CONTENT DESIGN FOR BRAND,
               </p>
-              <p className="font-bold text-2xl sm:text-3xl md:text-4xl lg:text-[2.6rem] leading-[1.3] text-[#E50914] tracking-tight-heading">
+              <p className="font-bold text-2xl sm:text-3xl md:text-4xl lg:text-[2.6rem] leading-[1.3] text-[#111111] tracking-tight-heading">
                 CAMPAIGN AND DIGITAL ADS.
               </p>
-              <p className="font-bold text-2xl sm:text-3xl md:text-4xl lg:text-[2.6rem] leading-[1.3] text-[#E50914] tracking-tight-heading">
+              <p className="font-bold text-2xl sm:text-3xl md:text-4xl lg:text-[2.6rem] leading-[1.3] text-[#FF3E6C] tracking-tight-heading">
                 BASED IN SEOUL, SOUTH KOREA.
               </p>
             </div>
@@ -575,38 +575,38 @@ export default function App() {
           
           {/* Header Banner Area */}
           <section id="works-header" className="w-full flex flex-col items-start select-none">
-            <span className="font-mono text-[11px] tracking-[4px] text-[#E50914] block mb-2 opacity-80">
+            <span className="font-mono text-[11px] tracking-[4px] text-[#FF3E6C] block mb-2 opacity-80">
               ALL
             </span>
             <div className="relative inline-block w-full">
-              <h1 className="font-black text-[12vw] sm:text-[10vw] md:text-[80px] lg:text-[100px] leading-none tracking-tight-extreme text-[#E50914] select-none mb-4">
+              <h1 className="font-black text-[12vw] sm:text-[10vw] md:text-[80px] lg:text-[100px] leading-none tracking-tight-extreme text-[#111111] select-none mb-4">
                 WORKS
               </h1>
             </div>
 
             {/* Custom Interactive Category Filter Bar */}
-            <div className="flex flex-wrap gap-x-8 gap-y-3 pb-6 border-b border-[#E50914]/20 w-full text-[11px] font-mono tracking-widest text-[#E50914]/50 mt-4 mb-2">
+            <div className="flex flex-wrap gap-x-8 gap-y-3 pb-6 border-b border-[#111111]/10 w-full text-[11px] font-mono tracking-widest text-[#111111]/50 mt-4 mb-2">
               <button 
                 onClick={() => setSelectedCategory("ALL")}
-                className={`hover:text-[#E50914] transition-colors cursor-pointer ${selectedCategory === "ALL" ? "text-[#E50914] font-black" : ""}`}
+                className={`hover:text-[#FF3E6C] transition-colors cursor-pointer ${selectedCategory === "ALL" ? "text-[#FF3E6C] font-black" : ""}`}
               >
                 [ALL]
               </button>
               <button 
                 onClick={() => setSelectedCategory("VIDEO")}
-                className={`hover:text-[#E50914] transition-colors cursor-pointer ${selectedCategory === "VIDEO" ? "text-[#E50914] font-black" : ""}`}
+                className={`hover:text-[#FF3E6C] transition-colors cursor-pointer ${selectedCategory === "VIDEO" ? "text-[#FF3E6C] font-black" : ""}`}
               >
                 [VIDEO]
               </button>
               <button 
                 onClick={() => setSelectedCategory("BANNERS")}
-                className={`hover:text-[#E50914] transition-colors cursor-pointer ${selectedCategory === "BANNERS" ? "text-[#E50914] font-black" : ""}`}
+                className={`hover:text-[#FF3E6C] transition-colors cursor-pointer ${selectedCategory === "BANNERS" ? "text-[#FF3E6C] font-black" : ""}`}
               >
                 [BANNERS]
               </button>
               <button 
                 onClick={() => setSelectedCategory("ADS")}
-                className={`hover:text-[#E50914] transition-colors cursor-pointer ${selectedCategory === "ADS" ? "text-[#E50914] font-black" : ""}`}
+                className={`hover:text-[#FF3E6C] transition-colors cursor-pointer ${selectedCategory === "ADS" ? "text-[#FF3E6C] font-black" : ""}`}
               >
                 [ADS]
               </button>
@@ -619,27 +619,27 @@ export default function App() {
               <div 
                 key={work.id}
                 onClick={() => { window.location.href = `work-detail.html?id=${parseInt(work.id, 10)}`; }}
-                className="group flex flex-col sm:flex-row sm:items-center justify-between py-[12px] cursor-pointer transition-all duration-300 border-b border-[#E50914]/5 hover:bg-[#E50914]/5 px-4 -mx-4 uppercase"
+                className="group flex flex-col sm:flex-row sm:items-center justify-between py-[12px] cursor-pointer transition-all duration-300 border-b border-[#111111]/5 hover:bg-[#FF3E6C] px-4 -mx-4 uppercase"
                 onMouseEnter={() => setActiveThumbnailId(work.id)}
                 onMouseLeave={() => setActiveThumbnailId(null)}
               >
                 {/* Left Part: Title / Client */}
                 <div className="flex items-baseline gap-2.5 flex-grow truncate mr-4">
-                  <span className="font-bold text-[16px] text-[#E50914] group-hover:text-white transition-colors duration-300">
+                  <span className="font-bold text-[16px] text-[#111111] group-hover:text-white transition-colors duration-300">
                     {work.title}
                   </span>
-                  <span className="text-[#E50914]/30 font-light text-sm select-none">/</span>
-                  <span className="font-normal text-[14px] text-[#E50914]/80 group-hover:text-white/90 transition-colors duration-300">
+                  <span className="text-[#FF3E6C]/30 font-light text-sm select-none group-hover:text-white/40">/</span>
+                  <span className="font-normal text-[14px] text-[#111111]/80 group-hover:text-white/90 transition-colors duration-300">
                     {work.client}
                   </span>
                 </div>
 
                 {/* Right Part: Category & Year */}
                 <div className="flex items-center gap-16 text-right flex-shrink-0 mt-2 sm:mt-0">
-                  <span className="font-normal text-[12px] tracking-widest text-[#E50914]/80 w-[140px] text-right group-hover:text-white/80 transition-colors duration-300 hidden sm:inline">
+                  <span className="font-normal text-[12px] tracking-widest text-[#111111]/80 w-[140px] text-right group-hover:text-white/80 transition-colors duration-300 hidden sm:inline">
                     {work.category}
                   </span>
-                  <span className="font-normal text-[12px] tracking-widest text-[#E50914]/80 w-[60px] text-right group-hover:text-white/90 transition-colors duration-300">
+                  <span className="font-normal text-[12px] tracking-widest text-[#111111]/80 w-[60px] text-right group-hover:text-white/90 transition-colors duration-300">
                     {work.year}
                   </span>
                 </div>
@@ -647,7 +647,7 @@ export default function App() {
             ))}
 
             {filteredWorks.length === 0 && (
-              <div className="py-24 text-center text-[#E50914]/50 font-mono text-sm">
+              <div className="py-24 text-center text-[#FF3E6C]/60 font-mono text-sm">
                 NO PROJECTS REGISTERED UNDER [{selectedCategory}]
               </div>
             )}
@@ -663,7 +663,7 @@ export default function App() {
             
             {/* Left Column (35% on large screen) */}
             <div className="lg:col-span-4 flex flex-col">
-              <div className="relative w-full aspect-square bg-[#E50914] overflow-hidden border border-[#E50914]">
+              <div className="relative w-full aspect-square bg-[#FF3E6C] overflow-hidden border border-[#FF3E6C]">
                 <img 
                   src="https://images.unsplash.com/photo-1544025313-94ddf0286df2?auto=format&fit=crop&w=600&q=80" 
                   alt="Zuzanna portrait" 
@@ -696,10 +696,10 @@ export default function App() {
               
               {/* Upper area: Brand Philosophy */}
               <div className="flex flex-col items-start">
-                <span className="text-[11px] font-mono tracking-[4px] text-[#E50914] block mb-4 opacity-80">
+                <span className="text-[11px] font-mono tracking-[4px] text-[#FF3E6C] block mb-4 opacity-80">
                   INFO
                 </span>
-                <h2 className="font-black text-[24px] sm:text-[28px] md:text-[34px] lg:text-[38px] leading-[1.1] tracking-tight text-[#E50914] uppercase max-w-[680px]">
+                <h2 className="font-black text-[24px] sm:text-[28px] md:text-[34px] lg:text-[38px] leading-[1.1] tracking-tight text-[#111111] uppercase max-w-[680px]">
                   MY PROCESS IS GROUNDED<br />
                   IN CONVERSATION.<br />
                   UNDERSTANDING THE VISUAL<br />
@@ -711,7 +711,7 @@ export default function App() {
                 <div className="mt-8 mb-12">
                   <button 
                     onClick={() => { setView("works"); setSelectedCategory("ALL"); window.scrollTo({ top: 0, behavior: "smooth" }); }}
-                    className="inline-block bg-[#E50914] text-black font-mono font-bold text-[11px] tracking-[2px] px-6 py-3 transition-all duration-300 hover:bg-white hover:text-black cursor-pointer uppercase"
+                    className="inline-block bg-[#FF3E6C] text-white font-mono font-bold text-[11px] tracking-[2px] px-6 py-3 transition-all duration-300 hover:bg-[#111111] hover:text-white cursor-pointer uppercase"
                   >
                     CHECK CLIENTS
                   </button>
@@ -719,8 +719,8 @@ export default function App() {
               </div>
 
               {/* Middle area: Sub Philosophy */}
-              <div className="border-t border-[#E50914]/10 pt-8 mb-8">
-                <p className="font-normal text-[17px] sm:text-[20px] leading-[1.4] text-[#E50914]/95 uppercase max-w-[640px]">
+              <div className="border-t border-[#111111]/10 pt-8 mb-8">
+                <p className="font-normal text-[17px] sm:text-[20px] leading-[1.4] text-[#111111]/90 uppercase max-w-[640px]">
                   IN THE GRADING ROOM, I FOCUS<br />
                   ON TEXTURE AND DENSITY,<br />
                   ALWAYS LETTING THE IMAGE<br />
@@ -731,22 +731,22 @@ export default function App() {
               {/* Bottom area: Standard descriptions */}
               <div className="flex flex-col gap-8 max-w-[680px]">
                 {/* Paragraph 1 */}
-                <p className="text-[13px] sm:text-[14px] font-normal leading-[1.65] text-[#E50914] normal-case">
+                <p className="text-[13px] sm:text-[14px] font-normal leading-[1.65] text-[#111111]/80 normal-case">
                   Warsaw. My background in graphic design and visual arts — completed in Barcelona — together with years spent exploring street photography, shaped my sensibility for color, rhythm, and composition. Photography taught me to find balance in chaos and emotion in light — the invisible craft behind each frame.
                 </p>
 
                 {/* Section B / 2 */}
                 <div className="flex flex-col gap-1.5">
                   <span className="text-[10px] font-mono tracking-[3px] opacity-60">NEW DIRECTIONS</span>
-                  <p className="text-[13px] sm:text-[14px] font-normal leading-[1.65] text-[#E50914] normal-case">
+                  <p className="text-[13px] sm:text-[14px] font-normal leading-[1.65] text-[#111111]/80 normal-case">
                     Recently, I've expanded my path into new business management — a natural extension of my curiosity and love for human connection. Whether in the grading suite or at a film festival, I find inspiration in conversation, collaboration, and the constant exchange of ideas that fuel my creativity and keep my process evolving.
                   </p>
                 </div>
 
                 {/* Section C / 3 */}
-                <div className="flex flex-col gap-1.5 border-b border-[#E50914]/10 pb-12">
+                <div className="flex flex-col gap-1.5 border-b border-[#111111]/10 pb-12">
                   <span className="text-[10px] font-mono tracking-[3px] opacity-60">PATH TO COLOR</span>
-                  <p className="text-[13px] sm:text-[14px] font-normal leading-[1.65] text-[#E50914] normal-case">
+                  <p className="text-[13px] sm:text-[14px] font-normal leading-[1.65] text-[#111111]/80 normal-case">
                     Before focusing on color, I worked in 2D motion graphics, where precision and patience became second nature. As a colorist, I'm drawn to the dialogue between image and emotion, collaborating closely with directors and cinematographers to translate vision into mood and intention into color.
                   </p>
                 </div>
@@ -755,12 +755,12 @@ export default function App() {
               {/* Contact details */}
               <div className="flex flex-col gap-4 mt-8 select-none">
                 <span className="text-[10px] font-mono tracking-[3px] opacity-60">CONTACT</span>
-                <div className="flex flex-col gap-2 text-[26px] sm:text-[36px] md:text-[44px] font-black tracking-tighter leading-none text-[#E50914]">
+                <div className="flex flex-col gap-2 text-[26px] sm:text-[36px] md:text-[44px] font-black tracking-tighter leading-none text-[#111111]">
                   <div className="uppercase">SONG HEE</div>
-                  <a href="mailto:GRADE@GMAIL.COM" className="hover:text-white transition-colors duration-300">
+                  <a href="mailto:GRADE@GMAIL.COM" className="hover:text-[#FF3E6C] transition-colors duration-300">
                     GRADE@GMAIL.COM
                   </a>
-                  <a href="tel:+48661676540" className="hover:text-white transition-colors duration-300">
+                  <a href="tel:+48661676540" className="hover:text-[#FF3E6C] transition-colors duration-300">
                     +48 661 676 540
                   </a>
                 </div>
@@ -770,11 +770,11 @@ export default function App() {
           </div>
 
           {/* Bracketed Social Links footer line */}
-          <div className="flex justify-between items-center w-full mt-24 border-t border-[#E50914]/10 pt-6 select-none pb-6 text-[11px] font-bold tracking-[2px]">
-            <a href="https://instagram.com" target="_blank" rel="noopener noreferrer" className="border border-[#E50914] px-5 py-1.5 hover:bg-[#E50914] hover:text-black transition-all">
+          <div className="flex justify-between items-center w-full mt-24 border-t border-[#111111]/10 pt-6 select-none pb-6 text-[11px] font-bold tracking-[2px]">
+            <a href="https://instagram.com" target="_blank" rel="noopener noreferrer" className="border border-[#FF3E6C] text-[#FF3E6C] px-5 py-1.5 hover:bg-[#FF3E6C] hover:text-white transition-all">
               INSTAGRAM
             </a>
-            <a href="https://vimeo.com" target="_blank" rel="noopener noreferrer" className="border border-[#E50914] px-5 py-1.5 hover:bg-[#E50914] hover:text-black transition-all">
+            <a href="https://vimeo.com" target="_blank" rel="noopener noreferrer" className="border border-[#FF3E6C] text-[#FF3E6C] px-5 py-1.5 hover:bg-[#FF3E6C] hover:text-white transition-all">
               VIMEO
             </a>
           </div>
@@ -783,25 +783,25 @@ export default function App() {
       )}
 
       {/* SECTION 6: CTA BAR */}
-      <section id="cta" className="w-full mt-[120px] border-t border-[#E50914] bg-[#000000] px-6 md:px-12 py-10 flex flex-col md:flex-row justify-between items-start md:items-center gap-6">
+      <section id="cta" className="w-full mt-[120px] border-t border-[#FF3E6C] bg-white px-6 md:px-12 py-10 flex flex-col md:flex-row justify-between items-start md:items-center gap-6">
         <div className="flex flex-col gap-1.5">
-          <span className="font-semibold text-[10px] tracking-widest text-[#E50914]">
+          <span className="font-semibold text-[10px] tracking-widest text-[#FF3E6C]">
             READY TO WORK ON YOUR NEXT LOOK
           </span>
           <a
             href="mailto:SONGHEEGRADE@GMAIL.COM"
-            className="font-black text-lg sm:text-2xl lg:text-3xl tracking-tight-heading text-[#E50914] hover:opacity-85 transition-opacity uppercase"
+            className="font-black text-lg sm:text-2xl lg:text-3xl tracking-tight-heading text-[#111111] hover:text-[#FF3E6C] transition-colors duration-300 uppercase"
           >
             SONGHEEGRADE@GMAIL.COM
           </a>
         </div>
-        <div className="font-semibold text-[10px] tracking-widest text-[#E50914] md:text-right uppercase">
+        <div className="font-semibold text-[10px] tracking-widest text-[#111111]/70 md:text-right uppercase">
           PSFC FREELANCE COLORIST
         </div>
       </section>
 
       {/* SECTION 7: FOOTER (RED BACKGROUND SECTION) */}
-      <footer id="footer" class="w-full bg-[#E50914] text-[#000000] px-6 md:px-12 pt-20 pb-8 flex flex-col gap-24">
+      <footer id="footer" class="w-full bg-[#FF3E6C] text-white px-6 md:px-12 pt-20 pb-8 flex flex-col gap-24">
         
         {/* Footer Top Links Row */}
         <div className="grid grid-cols-1 md:grid-cols-3 gap-12 text-[12px] font-bold tracking-widest select-none">
@@ -831,7 +831,7 @@ export default function App() {
         </div>
 
         {/* Footer Monstrous Typographic Display: SONG [portrait] HEE */}
-        <div className="w-full flex items-center justify-center overflow-hidden tracking-tighter select-none font-black text-[#000000]">
+        <div className="w-full flex items-center justify-center overflow-hidden tracking-tighter select-none font-black text-white">
           <div class="flex items-center justify-center leading-[0.8] text-[15vw] sm:text-[18vw] md:text-[15.5vw] lg:text-[18vw] xl:text-[23vw]">
             <span>SONG</span>
             
@@ -850,7 +850,7 @@ export default function App() {
         </div>
 
         {/* Footer Bottom Metadata Credits */}
-        <div className="flex flex-col sm:flex-row justify-between items-center gap-4 text-[10px] tracking-widest font-bold border-t border-black/10 pt-6">
+        <div className="flex flex-col sm:flex-row justify-between items-center gap-4 text-[10px] tracking-widest font-bold border-t border-white/20 pt-6">
           <span>COPYRIGHT © 2025 SONG HEE</span>
           <span>DESIGN&DEV @TOTALNIE.JULIANNA</span>
         </div>
