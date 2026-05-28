@@ -664,12 +664,8 @@ export default function App() {
             {/* Left Column (35% on large screen) */}
             <div className="lg:col-span-4 flex flex-col">
               <div className="relative w-full aspect-square bg-[#FF3E6C] overflow-hidden border border-[#FF3E6C]">
-                <img 
-                  src="https://images.unsplash.com/photo-1544025313-94ddf0286df2?auto=format&fit=crop&w=600&q=80" 
-                  alt="Zuzanna portrait" 
-                  referrerPolicy="no-referrer"
-                  className="w-full h-full object-cover filter grayscale contrast-[1.8] brightness-[0.75] mix-blend-multiply opacity-100 object-center transition-transform duration-500 hover:scale-105"
-                />
+                {/* Intentionally no photo: keep minimal, resume-like panel */}
+                <div className="absolute inset-0 bg-[#111111]" />
                 
                 {/* CSS Halftone/Stripe/Scanline overlay resembling screenshot vertical scanline pattern */}
                 <div 
@@ -694,61 +690,130 @@ export default function App() {
             {/* Right Column (65% on large screen) */}
             <div className="lg:col-span-8 flex flex-col justify-between">
               
-              {/* Upper area: Brand Philosophy */}
+              {/* Upper area: Self Intro Header */}
               <div className="flex flex-col items-start">
                 <span className="text-[11px] font-mono tracking-[4px] text-[#FF3E6C] block mb-4 opacity-80">
                   INFO
                 </span>
-                <h2 className="font-black text-[24px] sm:text-[28px] md:text-[34px] lg:text-[38px] leading-[1.1] tracking-tight text-[#111111] uppercase max-w-[680px]">
-                  MY PROCESS IS GROUNDED<br />
-                  IN CONVERSATION.<br />
-                  UNDERSTANDING THE VISUAL<br />
-                  INTENTION, RHYTHM AND<br />
-                  EMOTIONAL TONE OF A PROJECT<br />
-                  ALWAYS COMES FIRST.
-                </h2>
-                
-                <div className="mt-8 mb-12">
-                  <button 
-                    onClick={() => { setView("works"); setSelectedCategory("ALL"); window.scrollTo({ top: 0, behavior: "smooth" }); }}
-                    className="inline-block bg-[#FF3E6C] text-white font-mono font-bold text-[11px] tracking-[2px] px-6 py-3 transition-all duration-300 hover:bg-[#111111] hover:text-white cursor-pointer uppercase"
-                  >
-                    CHECK CLIENTS
-                  </button>
+
+                <div className="w-full flex flex-col gap-2 border-t border-[#111111]/10 pt-6">
+                  <h2 className="font-black text-[34px] sm:text-[42px] md:text-[52px] leading-[0.95] tracking-tight text-[#111111] uppercase">
+                    LEE SONG HEE
+                  </h2>
+                  <div className="flex flex-wrap items-center gap-x-4 gap-y-1 text-[12px] tracking-widest text-[#111111]/60 uppercase">
+                    <span>CONTENT DESIGNER</span>
+                    <span className="text-[#FF3E6C]/40">/</span>
+                    <span>BASED IN SEOUL</span>
+                  </div>
+
+                  <p className="mt-4 max-w-[680px] text-[13px] sm:text-[14px] leading-[1.75] text-[#111111]/75 normal-case">
+                    광고·마케팅 콘텐츠 중심의 시각디자이너입니다. 브랜드의 목적을 빠르게 정리하고, 매체에 맞는 톤&매너로 설계해
+                    메시지가 선명하게 전달되는 결과물을 만듭니다.
+                  </p>
+
+                  <div className="mt-7 mb-10">
+                    <button
+                      onClick={() => {
+                        setView("works");
+                        setSelectedCategory("ALL");
+                        window.scrollTo({top: 0, behavior: "smooth"});
+                      }}
+                      className="inline-block bg-[#FF3E6C] text-white font-mono font-bold text-[11px] tracking-[2px] px-6 py-3 transition-all duration-300 hover:bg-[#111111] hover:text-white cursor-pointer uppercase"
+                    >
+                      CHECK WORKS
+                    </button>
+                  </div>
                 </div>
               </div>
 
-              {/* Middle area: Sub Philosophy */}
-              <div className="border-t border-[#111111]/10 pt-8 mb-8">
-                <p className="font-normal text-[17px] sm:text-[20px] leading-[1.4] text-[#111111]/90 uppercase max-w-[640px]">
-                  IN THE GRADING ROOM, I FOCUS<br />
-                  ON TEXTURE AND DENSITY,<br />
-                  ALWAYS LETTING THE IMAGE<br />
-                  BREATHE AND SPEAK FOR ITSELF.
-                </p>
-              </div>
+              {/* Middle area: Resume-like summary blocks */}
+              <div className="border-t border-[#111111]/10 pt-8 mb-8 w-full">
+                <div className="grid grid-cols-1 md:grid-cols-12 gap-10">
+                  <div className="md:col-span-4">
+                    <h3 className="text-[12px] font-black tracking-widest text-[#111111] uppercase mb-3">
+                      Education
+                    </h3>
+                    <div className="space-y-3 text-[13px] leading-[1.7] text-[#111111]/70 normal-case">
+                      <div className="flex gap-3">
+                        <span className="w-[44px] shrink-0 font-mono text-[11px] tracking-widest text-[#111111]/50">
+                          2021
+                        </span>
+                        <span>호서대학교 시각디자인학과 졸업</span>
+                      </div>
+                      <div className="flex gap-3">
+                        <span className="w-[44px] shrink-0 font-mono text-[11px] tracking-widest text-[#111111]/50">
+                          2016
+                        </span>
+                        <span>아산 설화고등학교 졸업</span>
+                      </div>
+                    </div>
+                  </div>
 
-              {/* Bottom area: Standard descriptions */}
-              <div className="flex flex-col gap-8 max-w-[680px]">
-                {/* Paragraph 1 */}
-                <p className="text-[13px] sm:text-[14px] font-normal leading-[1.65] text-[#111111]/80 normal-case">
-                  Warsaw. My background in graphic design and visual arts — completed in Barcelona — together with years spent exploring street photography, shaped my sensibility for color, rhythm, and composition. Photography taught me to find balance in chaos and emotion in light — the invisible craft behind each frame.
-                </p>
+                  <div className="md:col-span-5">
+                    <h3 className="text-[12px] font-black tracking-widest text-[#111111] uppercase mb-3">
+                      Experiences
+                    </h3>
+                    <div className="space-y-3 text-[13px] leading-[1.7] text-[#111111]/70 normal-case">
+                      <div className="flex gap-3">
+                        <span className="w-[120px] shrink-0 font-mono text-[11px] tracking-widest text-[#111111]/50">
+                          2022.11.14 — 2026.03.31
+                        </span>
+                        <div className="flex flex-col gap-0.5">
+                          <span className="text-[#111111]/80">Adenasoft</span>
+                          <span className="text-[#111111]/60">광고 마케팅 디자이너</span>
+                        </div>
+                      </div>
+                      <div className="flex gap-3">
+                        <span className="w-[120px] shrink-0 font-mono text-[11px] tracking-widest text-[#111111]/50">
+                          2022.01.03 — 2022.07.11
+                        </span>
+                        <div className="flex flex-col gap-0.5">
+                          <span className="text-[#111111]/80">The Watermelon</span>
+                          <span className="text-[#111111]/60">아트디렉터</span>
+                        </div>
+                      </div>
+                      <div className="flex gap-3">
+                        <span className="w-[120px] shrink-0 font-mono text-[11px] tracking-widest text-[#111111]/50">
+                          2021.01.14 — 2021.12.31
+                        </span>
+                        <div className="flex flex-col gap-0.5">
+                          <span className="text-[#111111]/80">Postvisual</span>
+                          <span className="text-[#111111]/60">아트디렉터</span>
+                        </div>
+                      </div>
+                    </div>
+                  </div>
 
-                {/* Section B / 2 */}
-                <div className="flex flex-col gap-1.5">
-                  <span className="text-[10px] font-mono tracking-[3px] opacity-60">NEW DIRECTIONS</span>
-                  <p className="text-[13px] sm:text-[14px] font-normal leading-[1.65] text-[#111111]/80 normal-case">
-                    Recently, I've expanded my path into new business management — a natural extension of my curiosity and love for human connection. Whether in the grading suite or at a film festival, I find inspiration in conversation, collaboration, and the constant exchange of ideas that fuel my creativity and keep my process evolving.
-                  </p>
-                </div>
+                  <div className="md:col-span-3">
+                    <h3 className="text-[12px] font-black tracking-widest text-[#111111] uppercase mb-3">
+                      Skills
+                    </h3>
 
-                {/* Section C / 3 */}
-                <div className="flex flex-col gap-1.5 border-b border-[#111111]/10 pb-12">
-                  <span className="text-[10px] font-mono tracking-[3px] opacity-60">PATH TO COLOR</span>
-                  <p className="text-[13px] sm:text-[14px] font-normal leading-[1.65] text-[#111111]/80 normal-case">
-                    Before focusing on color, I worked in 2D motion graphics, where precision and patience became second nature. As a colorist, I'm drawn to the dialogue between image and emotion, collaborating closely with directors and cinematographers to translate vision into mood and intention into color.
-                  </p>
+                    <div className="space-y-2 text-[13px] leading-[1.7] text-[#111111]/70 normal-case">
+                      {[
+                        {name: "Photoshop", level: 5},
+                        {name: "Illustrator", level: 4},
+                        {name: "Dimension", level: 3},
+                        {name: "Figma", level: 4},
+                        {name: "Midjourney", level: 3},
+                        {name: "Nano Banana", level: 2},
+                      ].map((s) => (
+                        <div key={s.name} className="flex items-center justify-between gap-3">
+                          <span className="text-[#111111]/80">{s.name}</span>
+                          <span className="flex items-center gap-1">
+                            {Array.from({length: 5}).map((_, i) => (
+                              <span
+                                key={i}
+                                className={`inline-block w-1.5 h-1.5 rounded-full ${
+                                  i < s.level ? "bg-[#111111]/80" : "bg-[#111111]/20"
+                                }`}
+                              />
+                            ))}
+                          </span>
+                        </div>
+                      ))}
+                    </div>
+                  </div>
                 </div>
               </div>
 
@@ -757,11 +822,11 @@ export default function App() {
                 <span className="text-[10px] font-mono tracking-[3px] opacity-60">CONTACT</span>
                 <div className="flex flex-col gap-2 text-[26px] sm:text-[36px] md:text-[44px] font-black tracking-tighter leading-none text-[#111111]">
                   <div className="uppercase">SONG HEE</div>
-                  <a href="mailto:GRADE@GMAIL.COM" className="hover:text-[#FF3E6C] transition-colors duration-300">
-                    GRADE@GMAIL.COM
+                  <a href="mailto:thdgmldlsgh@naver.com" className="hover:text-[#FF3E6C] transition-colors duration-300 normal-case">
+                    thdgmldlsgh@naver.com
                   </a>
-                  <a href="tel:+48661676540" className="hover:text-[#FF3E6C] transition-colors duration-300">
-                    +48 661 676 540
+                  <a href="tel:+82-10-3125-7371" className="hover:text-[#FF3E6C] transition-colors duration-300 normal-case">
+                    010.3125.7371
                   </a>
                 </div>
               </div>
